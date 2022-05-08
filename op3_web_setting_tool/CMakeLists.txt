@@ -1,7 +1,7 @@
 ################################################################################
 # Set minimum required version of cmake, project name and compile options
 ################################################################################
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.0.2)
 project(op3_web_setting_tool)
 
 ################################################################################
@@ -33,8 +33,9 @@ catkin_package()
 ################################################################################
 # Install
 ################################################################################
-install(DIRECTORY html launch 
-	DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+install(
+  DIRECTORY html launch
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
 ################################################################################

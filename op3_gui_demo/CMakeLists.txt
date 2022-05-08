@@ -2,7 +2,7 @@
 # CMake
 ##############################################################################
 
-cmake_minimum_required(VERSION 2.8.0)
+cmake_minimum_required(VERSION 3.0.2)
 project(op3_gui_demo)
 
 ##############################################################################
@@ -10,7 +10,8 @@ project(op3_gui_demo)
 ##############################################################################
 
 # qt_build provides the qt cmake glue, roscpp the comms for a default talker
-find_package(catkin REQUIRED COMPONENTS
+find_package(
+  catkin REQUIRED COMPONENTS
   rqt_gui
   rqt_gui_cpp
   roscpp
@@ -37,7 +38,8 @@ else()
   include(${QT_USE_FILE})
 endif()
 
-set(op3_gui_demo_SRCS
+set(
+  op3_gui_demo_SRCS
   src/main.cpp
   src/main_window.cpp
   src/preview_walking_form.cpp
@@ -46,22 +48,26 @@ set(op3_gui_demo_SRCS
   src/qnode_preview_walking.cpp
 )
 
-set(op3_gui_demo_HDRS
+set(
+  op3_gui_demo_HDRS
   include/op3_gui_demo/main_window.hpp
   include/op3_gui_demo/preview_walking_form.h
   include/op3_gui_demo/qnode.hpp
 )
 
-set(op3_gui_demo_UIS
+set(
+  op3_gui_demo_UIS
   ui/main_window.ui
   ui/preview_walking_form.ui
 )
 
-set(op3_gui_demo_RESOURCES
-    resources/images.qrc
+set(
+  op3_gui_demo_RESOURCES
+  resources/images.qrc
 )
 
-set(op3_gui_demo_INCLUDE_DIRECTORIES
+set(
+  op3_gui_demo_INCLUDE_DIRECTORIES
   include
   include/${PROJECT_NAME}
   "${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/${PROJECT_NAME}"
@@ -73,7 +79,22 @@ endif()
 catkin_package(
   INCLUDE_DIRS ${op3_gui_demo_INCLUDE_DIRECTORIES}
   LIBRARIES ${PROJECT_NAME}
-  CATKIN_DEPENDS rqt_gui  rqt_gui_cpp  roscpp  roslib  std_msgs  sensor_msgs  geometry_msgs  visualization_msgs  interactive_markers  cmake_modules  eigen_conversions  robotis_controller_msgs  op3_walking_module_msgs  op3_online_walking_module_msgs  humanoid_nav_msgs
+  CATKIN_DEPENDS
+  rqt_gui
+  rqt_gui_cpp
+  roscpp
+  roslib
+  std_msgs
+  sensor_msgs
+  geometry_msgs
+  visualization_msgs
+  interactive_markers
+  cmake_modules
+  eigen_conversions
+  robotis_controller_msgs
+  op3_walking_module_msgs
+  op3_online_walking_module_msgs
+  humanoid_nav_msgs
 )
 #catkin_python_setup()
 
@@ -120,7 +141,7 @@ class_loader_hide_library_symbols(${PROJECT_NAME})
 # Qt Environment
 ##############################################################################
 
-# this comes from qt_build's qt-ros.cmake which is automatically 
+# this comes from qt_build's qt-ros.cmake which is automatically
 # included via the dependency call in package.xml
 #rosbuild_prepare_qt4(QtCore QtGui) # Add the appropriate components to the component list here
 

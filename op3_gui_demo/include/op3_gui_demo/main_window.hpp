@@ -1,18 +1,18 @@
 /*******************************************************************************
-* Copyright 2017 ROBOTIS CO., LTD.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*******************************************************************************/
+ * Copyright 2017 ROBOTIS CO., LTD.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *******************************************************************************/
 
 /* Author: Kayman Jung */
 
@@ -25,20 +25,19 @@
 #ifndef Q_MOC_RUN
 
 //#include <QtGui/QMainWindow>
-#include <QMainWindow>
-#include "ui_main_window.h"
 #include "qnode.hpp"
+#include "ui_main_window.h"
+#include <QMainWindow>
 
 #endif
 /*****************************************************************************
  ** Namespace
  *****************************************************************************/
 
-namespace robotis_op
-{
+namespace robotis_op {
 
-#define DEGREE2RADIAN     (M_PI / 180.0)
-#define RADIAN2DEGREE     (180.0 / M_PI)
+#define DEGREE2RADIAN (M_PI / 180.0)
+#define RADIAN2DEGREE (180.0 / M_PI)
 
 /*****************************************************************************
  ** Interface [MainWindow]
@@ -46,21 +45,20 @@ namespace robotis_op
 /**
  * @brief Qt central, all operations relating to the view part here.
  */
-class MainWindow : public QMainWindow
-{
-Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
- public:
-  MainWindow(int argc, char** argv, QWidget *parent = 0);
+public:
+  MainWindow(int argc, char **argv, QWidget *parent = 0);
   ~MainWindow();
 
   void readSettings();  // Load up qt program settings at startup
-  void writeSettings();  // Save qt program settings when closing
+  void writeSettings(); // Save qt program settings when closing
 
-  void closeEvent(QCloseEvent *event);  // Overloaded function
+  void closeEvent(QCloseEvent *event); // Overloaded function
   void showNoMasterMessage();
 
- public Q_SLOTS:
+public Q_SLOTS:
 
   /******************************************
    ** Auto-connections (connectSlotsByName())
@@ -95,7 +93,7 @@ Q_OBJECT
   /******************************************
    ** Manual connections
    *******************************************/
-  void updateLoggingView();  // no idea why this can't connect automatically
+  void updateLoggingView(); // no idea why this can't connect automatically
   void setMode(bool check);
   void updateCurrentJointMode(std::vector<int> mode);
   void setMode(QString mode_name);
@@ -107,12 +105,11 @@ Q_OBJECT
   void updateWalkingParams(op3_walking_module_msgs::WalkingParam params);
   void walkingCommandShortcut();
 
- protected Q_SLOTS:
+protected Q_SLOTS:
   void setHeadAngle();
 
- private:
-  enum Motion_Index
-  {
+private:
+  enum Motion_Index {
     InitPose = 1,
     WalkingReady = 9,
     GetUpFront = 122,
@@ -136,9 +133,9 @@ Q_OBJECT
 
   bool is_updating_;
   bool is_walking_;
-  std::map<std::string, QList<QWidget *> > module_ui_table_;
+  std::map<std::string, QList<QWidget *>> module_ui_table_;
 };
 
-}  // namespace robotis_op
+} // namespace robotis_op
 
 #endif // OP3_DEMO_MAIN_WINDOW_H

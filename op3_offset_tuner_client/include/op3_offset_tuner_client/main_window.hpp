@@ -1,18 +1,18 @@
 /*******************************************************************************
-* Copyright 2017 ROBOTIS CO., LTD.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*******************************************************************************/
+ * Copyright 2017 ROBOTIS CO., LTD.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *******************************************************************************/
 
 /* Author: Kayman Jung */
 
@@ -24,23 +24,22 @@
  *****************************************************************************/
 #ifndef Q_MOC_RUN
 
-#include <QtGui>
 #include <QList>
-#include <QSpinBox>
 #include <QMainWindow>
+#include <QSpinBox>
+#include <QtGui>
 
 #include <math.h>
 
-#include "ui_main_window.h"
 #include "qnode.hpp"
+#include "ui_main_window.h"
 
 #endif
 /*****************************************************************************
  ** Namespace
  *****************************************************************************/
 
-namespace op3_offset_tuner_client
-{
+namespace op3_offset_tuner_client {
 
 /*****************************************************************************
  ** Interface [MainWindow]
@@ -48,17 +47,16 @@ namespace op3_offset_tuner_client
 /**
  * @brief Qt central, all operations relating to the view part here.
  */
-class MainWindow : public QMainWindow
-{
-Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
- public:
-  MainWindow(int argc, char** argv, QWidget *parent = 0);
+public:
+  MainWindow(int argc, char **argv, QWidget *parent = 0);
   ~MainWindow();
 
-  void closeEvent(QCloseEvent *event);  // Overloaded function
+  void closeEvent(QCloseEvent *event); // Overloaded function
 
- public Q_SLOTS:
+public Q_SLOTS:
   /******************************************
    ** Auto-connections (connectSlotsByName())
    *******************************************/
@@ -71,18 +69,20 @@ Q_OBJECT
   /******************************************
    ** Manual connections
    *******************************************/
-  void updateLoggingView();  // no idea why this can't connect automatically
+  void updateLoggingView(); // no idea why this can't connect automatically
 
-  void updateJointOffsetSpinbox(op3_offset_tuner_msgs::JointOffsetPositionData msg);
+  void
+  updateJointOffsetSpinbox(op3_offset_tuner_msgs::JointOffsetPositionData msg);
 
   void changedSpinBoxValue(QString q_joint_name);
   void clickedTorqueCheckbox(QWidget *widget);
   void clickedAllTorqueOnButton(QObject *button_group);
   void clickedAllTorqueOffButton(QObject *button_group);
 
- private:
+private:
   void makeUI();
-  void makeTabUI(QGroupBox *joint_widget, QGroupBox *torque_widget, QButtonGroup *button_group,
+  void makeTabUI(QGroupBox *joint_widget, QGroupBox *torque_widget,
+                 QButtonGroup *button_group,
                  std::map<int, std::string> &offset_group);
   void publishTorqueMsgs(std::string &joint_name, bool torque_on);
 
@@ -97,9 +97,9 @@ Q_OBJECT
   QButtonGroup *body_button_group_;
   std::vector<std::string> spinBox_list_;
 
-  std::map<std::string, QList<QAbstractSpinBox *> > joint_spinbox_map_;
+  std::map<std::string, QList<QAbstractSpinBox *>> joint_spinbox_map_;
 };
 
-}  // namespace op3_offset_tuner_client
+} // namespace op3_offset_tuner_client
 
 #endif // OP3_OFFSET_TUNER_CLIENT_MAIN_WINDOW_H

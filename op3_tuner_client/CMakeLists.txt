@@ -2,14 +2,15 @@
 # CMake
 ##############################################################################
 
-cmake_minimum_required(VERSION 2.8.0)
+cmake_minimum_required(VERSION 3.0.2)
 project(op3_tuner_client)
 
 ##############################################################################
 # Catkin
 ##############################################################################
 
-find_package(catkin REQUIRED COMPONENTS
+find_package(
+  catkin REQUIRED COMPONENTS
   rqt_gui
   rqt_gui_cpp
   roscpp
@@ -20,18 +21,20 @@ find_package(catkin REQUIRED COMPONENTS
 
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(YAML_CPP REQUIRED yaml-cpp)
-find_path(YAML_CPP_INCLUDE_DIR
+find_path(
+  YAML_CPP_INCLUDE_DIR
   NAMES yaml_cpp.h
   PATHS ${YAML_CPP_INCLUDE_DIRS}
 )
-find_library(YAML_CPP_LIBRARY
+find_library(
+  YAML_CPP_LIBRARY
   NAMES YAML_CPP
   PATHS ${YAML_CPP_LIBRARY_DIRS}
 )
 link_directories(${YAML_CPP_LIBRARY_DIRS})
 
 if(NOT ${YAML_CPP_VERSION} VERSION_LESS "0.5")
-add_definitions(-DHAVE_NEW_YAMLCPP)
+  add_definitions(-DHAVE_NEW_YAMLCPP)
 endif(NOT ${YAML_CPP_VERSION} VERSION_LESS "0.5")
 
 if("${qt_gui_cpp_USE_QT_MAJOR_VERSION} " STREQUAL "5 ")
@@ -41,26 +44,31 @@ else()
   include(${QT_USE_FILE})
 endif()
 
-set(op3_tuner_client_SRCS
+set(
+  op3_tuner_client_SRCS
   src/main.cpp
   src/main_window.cpp
   src/qnode.cpp
 )
 
-set(op3_tuner_client_HDRS
+set(
+  op3_tuner_client_HDRS
   include/op3_tuner_client/main_window.hpp
   include/op3_tuner_client/qnode.hpp
 )
 
-set(op3_tuner_client_UIS
+set(
+  op3_tuner_client_UIS
   ui/main_window.ui
 )
 
-set(op3_tuner_client_RESOURCES
+set(
+  op3_tuner_client_RESOURCES
   resources/images.qrc
 )
 
-set(op3_tuner_client_INCLUDE_DIRECTORIES
+set(
+  op3_tuner_client_INCLUDE_DIRECTORIES
   include
   include/${PROJECT_NAME}
   "${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/${PROJECT_NAME}"
@@ -70,11 +78,11 @@ if(NOT EXISTS "${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/${PRO
 endif()
 
 # Use this to define what the package will export (e.g. libs, headers).
-# exporting anything. 
+# exporting anything.
 catkin_package(
   INCLUDE_DIRS ${op3_tuner_client_INCLUDE_DIRECTORIES}
   LIBRARIES ${PROJECT_NAME}
-  CATKIN_DEPENDS  rqt_gui  rqt_gui_cpp  roscpp  roslib  std_msgs  op3_tuning_module_msgs
+  CATKIN_DEPENDS rqt_gui rqt_gui_cpp roscpp roslib std_msgs op3_tuning_module_msgs
 )
 
 if("${qt_gui_cpp_USE_QT_MAJOR_VERSION} " STREQUAL "5 ")
@@ -116,4 +124,3 @@ endif()
 find_package(class_loader)
 class_loader_hide_library_symbols(${PROJECT_NAME})
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
-

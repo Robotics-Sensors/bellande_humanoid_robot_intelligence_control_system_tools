@@ -1,62 +1,50 @@
 /*******************************************************************************
-* Copyright 2019 ROBOTIS CO., LTD.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*******************************************************************************/
+ * Copyright 2019 ROBOTIS CO., LTD.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *******************************************************************************/
 
 /* Author: Jay Song, Kayman Jung */
 
 #ifndef OP3_ACTION_EDITOR_H_
 #define OP3_ACTION_EDITOR_H_
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string>
-#include <unistd.h>
-#include <termios.h>
-#include <term.h>
+#include "dynamixel_sdk/dynamixel_sdk.h"
+#include "op3_action_module/action_module.h"
+#include "op3_base_module/base_module.h"
+#include "robotis_controller/robotis_controller.h"
 #include <fcntl.h>
 #include <ncurses.h>
 #include <pthread.h>
-#include <sys/wait.h>
 #include <ros/ros.h>
 #include <std_msgs/String.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string>
+#include <sys/wait.h>
+#include <term.h>
+#include <termios.h>
+#include <unistd.h>
 #include <yaml-cpp/yaml.h>
-#include "dynamixel_sdk/dynamixel_sdk.h"
-#include "robotis_controller/robotis_controller.h"
-#include "op3_action_module/action_module.h"
-#include "op3_base_module/base_module.h"
 
 #define ROBOT_NAME "OP3"
 
-namespace robotis_op
-{
+namespace robotis_op {
 
-class ActionEditor
-{
+class ActionEditor {
 public:
-  enum MirrorCommandType
-  {
-    LeftToRight = 1,
-    RightToLeft = 2,
-    SwitchEach = 3
-  };
-  enum MirrorTargetType
-  {
-    UpperBody = 1,
-    LowerBody = 2,
-    AllBody = 3
-  };
+  enum MirrorCommandType { LeftToRight = 1, RightToLeft = 2, SwitchEach = 3 };
+  enum MirrorTargetType { UpperBody = 1, LowerBody = 2, AllBody = 3 };
 
   ActionEditor();
   ~ActionEditor();
@@ -71,7 +59,9 @@ public:
   void moveLeftCursor();
   void moveRightCursor();
 
-  bool initializeActionEditor(std::string robot_file_path, std::string init_file_path, std::string offset_file_path);
+  bool initializeActionEditor(std::string robot_file_path,
+                              std::string init_file_path,
+                              std::string offset_file_path);
 
   // Disp & Drawing
   void drawIntro();
@@ -85,11 +75,10 @@ public:
   void printCmd(const char *message);
   bool askSave();
 
-
   // Edit value
   void setValueUpDown(int offset);
   void setValue(int value);
-  int  getValue();
+  int getValue();
   void toggleTorque();
   void storeValueToCache();
   void setValueFromCache();
@@ -106,7 +95,7 @@ public:
   void speedCmd();
   void playCmd();
   void playCmd(int mp3_index);
-  void playCmd(const char* file_path);
+  void playCmd(const char *file_path);
   void listCmd();
   void turnOnOffCmd(bool on, int num_param, int *list);
   void mirrorStepCmd(int index, int mirror_type, int target_type);
@@ -145,8 +134,8 @@ private:
   action_file_define::Page page_;
   action_file_define::Step step_;
 
-  robotis_framework::RobotisController* ctrl_;
-  robotis_framework::Robot* robot_;
+  robotis_framework::RobotisController *ctrl_;
+  robotis_framework::Robot *robot_;
 
   std::map<int, std::string> joint_id_to_name_;
   std::map<int, int> joint_id_to_row_index_;
@@ -167,7 +156,7 @@ private:
   bool edited_;
   int page_idx_;
 
-  int curr_col_ ;
+  int curr_col_;
   int curr_row_;
   int old_col_;
   int old_row_;
@@ -210,9 +199,8 @@ private:
 
   int profile_velocity_addr_;
   int cache_value_;
-
 };
 
-}
+} // namespace robotis_op
 
 #endif /* OP3_ACTION_EDITOR_H_ */
