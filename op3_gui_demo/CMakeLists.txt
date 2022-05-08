@@ -29,7 +29,7 @@ find_package(
   humanoid_nav_msgs
 )
 
-find_package(Eigen REQUIRED)
+# find_package(Eigen REQUIRED)
 
 if("${qt_gui_cpp_USE_QT_MAJOR_VERSION} " STREQUAL "5 ")
   find_package(Qt5Widgets REQUIRED)
