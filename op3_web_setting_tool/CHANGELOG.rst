@@ -2,6 +2,11 @@
 Changelog for package op3_web_setting_tool
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.3.0 (2021-05-06)
+------------------
+* Update package.xml and CMakeList.txt for noetic branch
+* Contributors: Ronaldson Bellande
+
 0.2.2 (2018-04-20)
 ------------------
 * none

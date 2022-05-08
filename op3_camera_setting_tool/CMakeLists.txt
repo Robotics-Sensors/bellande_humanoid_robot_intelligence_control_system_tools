@@ -1,13 +1,14 @@
 ################################################################################
 # Set minimum required version of cmake, project name and compile options
 ################################################################################
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.0.2)
 project(op3_camera_setting_tool)
 
 ################################################################################
 # Find catkin packages and libraries for catkin and system dependencies
 ################################################################################
-find_package(catkin REQUIRED COMPONENTS
+find_package(
+  catkin REQUIRED COMPONENTS
   roscpp
   roslib
   std_msgs
@@ -22,18 +23,20 @@ find_package(Boost REQUIRED COMPONENTS thread)
 ## Insert your header file compatible specified path like '#include <yaml-cpp/yaml.h>'
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(YAML_CPP REQUIRED yaml-cpp)
-find_path(YAML_CPP_INCLUDE_DIR
+find_path(
+  YAML_CPP_INCLUDE_DIR
   NAMES yaml_cpp.h
   PATHS ${YAML_CPP_INCLUDE_DIRS}
 )
-find_library(YAML_CPP_LIBRARY
+find_library(
+  YAML_CPP_LIBRARY
   NAMES YAML_CPP
   PATHS ${YAML_CPP_LIBRARY_DIRS}
 )
 link_directories(${YAML_CPP_LIBRARY_DIRS})
 
 if(NOT ${YAML_CPP_VERSION} VERSION_LESS "0.5")
-add_definitions(-DHAVE_NEW_YAMLCPP)
+  add_definitions(-DHAVE_NEW_YAMLCPP)
 endif(NOT ${YAML_CPP_VERSION} VERSION_LESS "0.5")
 
 ################################################################################
@@ -71,7 +74,12 @@ generate_dynamic_reconfigure_options(cfg/CameraParams.cfg)
 ################################################################################
 catkin_package(
   INCLUDE_DIRS include
-  CATKIN_DEPENDS roscpp roslib std_msgs dynamic_reconfigure message_runtime
+  CATKIN_DEPENDS
+  roscpp
+  roslib
+  std_msgs
+  dynamic_reconfigure
+  message_runtime
   DEPENDS Boost
 )
 
@@ -92,16 +100,19 @@ target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${Y
 ################################################################################
 # Install
 ################################################################################
-install(TARGETS ${PROJECT_NAME}
+install(
+  TARGETS ${PROJECT_NAME}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
-install(DIRECTORY include/${PROJECT_NAME}/
+install(
+  DIRECTORY include/${PROJECT_NAME}/
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
 )
 
-install(DIRECTORY config launch
-	DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+install(
+  DIRECTORY config launch
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
 ################################################################################
