@@ -21,6 +21,7 @@
 
 #include <QWidget>
 #include <iostream>
+#include <tf/tf.h>
 
 #include "qnode.hpp"
 #include "ui_preview_walking_form.h"

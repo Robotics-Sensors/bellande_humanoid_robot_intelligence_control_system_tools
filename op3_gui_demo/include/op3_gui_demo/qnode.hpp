@@ -214,6 +214,7 @@ private:
   boost::shared_ptr<interactive_markers::InteractiveMarkerServer>
       interactive_marker_server_;
   boost::shared_ptr<tf::TransformListener> tf_listener_;
+  // boost::shared_ptr<tf::lookupTransform> tf_listener_2;
 
   op3_walking_module_msgs::WalkingParam walking_param_;
 

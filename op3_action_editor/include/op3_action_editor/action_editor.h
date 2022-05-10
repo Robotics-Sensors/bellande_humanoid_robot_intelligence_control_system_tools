@@ -24,7 +24,7 @@
 #include "op3_base_module/base_module.h"
 #include "robotis_controller/robotis_controller.h"
 #include <fcntl.h>
-#include <ncurses.h>
+// #include <ncurses.h>
 #include <pthread.h>
 #include <ros/ros.h>
 #include <std_msgs/String.h>
