@@ -70,8 +70,10 @@ bool QNodeOP3::transformPose(const std::string &from_id,
   tf::StampedTransform desired_transform;
 
   try {
-    tf_listener_->lookupTransform(from_id, to_id, ros::Time(0),
-                                  desired_transform);
+
+    // LOOK INTO THIS ERROR
+    // tf_listener_->lookupTransform(from_id, to_id, ros::Time(0),
+    //                               desired_transform);
     Eigen::Vector3d transform_position(desired_transform.getOrigin().x(),
                                        desired_transform.getOrigin().y(),
                                        desired_transform.getOrigin().z());

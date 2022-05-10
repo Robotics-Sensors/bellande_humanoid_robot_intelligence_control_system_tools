@@ -20,7 +20,7 @@ find_package(
   op3_base_module
 )
 
-find_package(Curses REQUIRED)
+# find_package(Curses REQUIRED)
 
 ## Resolve system dependency on yaml-cpp, which apparently does not
 ## provide a CMake find_package() module.
@@ -68,7 +68,7 @@ catkin_package(
   robotis_device
   op3_action_module
   op3_base_module
-  DEPENDS CURSES
+  # DEPENDS CURSES
 )
 
 ################################################################################
