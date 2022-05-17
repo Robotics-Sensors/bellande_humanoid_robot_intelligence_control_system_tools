@@ -7,7 +7,7 @@ services:
   - docker
 language: generic
 python:
-  - "2.7"
+  - "3.8"
 compiler:
   - gcc
 notifications:
@@ -15,19 +15,14 @@ notifications:
     on_success: change
     on_failure: always
     recipients:
-      - pyo@robotis.com
+      - ronaldsonbellande@gmail.com
 env:
   matrix:
-#    - ROS_DISTRO=kinetic ROS_REPO=ros-shadow-fixed UPSTREAM_WORKSPACE=debian OS_NAME=ubuntu OS_CODE_NAME=xenial
-#   - ROS_DISTRO=kinetic ROS_REPO=ros-shadow-fixed UPSTREAM_WORKSPACE=debian OS_NAME=debian OS_CODE_NAME=jessie
-   - ROS_DISTRO=kinetic ROS_REPO=ros-shadow-fixed UPSTREAM_WORKSPACE=file   OS_NAME=ubuntu OS_CODE_NAME=xenial $ROSINSTALL_FILENAME=".robotis_op3_tools.rosinstall"
-#   - ROS_DISTRO=melodic ROS_REPO=ros-shadow-fixed UPSTREAM_WORKSPACE=debian OS_NAME=ubuntu OS_CODE_NAME=bionic
-#   - ROS_DISTRO=melodic ROS_REPO=ros-shadow-fixed UPSTREAM_WORKSPACE=debian OS_NAME=debian OS_CODE_NAME=stretch
+   - ROS_DISTRO=noetic ROS_REPO=ros-shadow-fixed UPSTREAM_WORKSPACE=file   OS_NAME=ubuntu OS_CODE_NAME=focal $ROSINSTALL_FILENAME=".robotis_op3_tools.rosinstall"
 branches:
   only:
     - master
-    - develop
-    - kinetic-devel
+    - noetic
 install:
   - git clone https://github.com/ros-industrial/industrial_ci.git .ci_config
 script:
