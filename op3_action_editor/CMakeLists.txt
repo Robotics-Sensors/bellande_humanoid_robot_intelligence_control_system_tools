@@ -68,7 +68,7 @@ catkin_package(
   robotis_device
   op3_action_module
   op3_base_module
-  # DEPENDS CURSES
+  DEPENDS CURSES
 )
 
 ################################################################################

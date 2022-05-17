@@ -18,12 +18,9 @@ find_package(
   op3_offset_tuner_msgs
 )
 
-if("${qt_gui_cpp_USE_QT_MAJOR_VERSION} " STREQUAL "5 ")
-  find_package(Qt5Widgets REQUIRED)
-else()
-  find_package(Qt4 COMPONENTS QtCore QtGui REQUIRED)
-  include(${QT_USE_FILE})
-endif()
+
+find_package(Qt5Widgets REQUIRED)
+# find_package(Qt5 REQUIRED COMPONENTS Widgets)
 
 set(
   op3_offset_tuner_client_SRCS
@@ -66,11 +63,8 @@ catkin_package(
   CATKIN_DEPENDS rqt_gui rqt_gui_cpp roscpp roslib op3_offset_tuner_msgs
 )
 
-if("${qt_gui_cpp_USE_QT_MAJOR_VERSION} " STREQUAL "5 ")
-  qt5_wrap_cpp(op3_offset_tuner_client_MOCS ${op3_offset_tuner_client_HDRS})
-else()
-  qt4_wrap_cpp(op3_offset_tuner_client_MOCS ${op3_offset_tuner_client_HDRS})
-endif()
+qt5_wrap_cpp(op3_offset_tuner_client_MOCS ${op3_offset_tuner_client_HDRS})
+
 # ensure generated header files are being created in the devel space
 set(_cmake_current_binary_dir "${CMAKE_CURRENT_BINARY_DIR}")
 set(CMAKE_CURRENT_BINARY_DIR "${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/${PROJECT_NAME}")
@@ -95,12 +89,7 @@ include_directories(
 )
 add_executable(${PROJECT_NAME} ${op3_offset_tuner_client_SRCS} ${op3_offset_tuner_client_MOCS} ${op3_offset_tuner_client_UIS_H} ${op3_offset_tuner_client_RCC})
 add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} yaml-cpp)
-if("${qt_gui_cpp_USE_QT_MAJOR_VERSION} " STREQUAL "5 ")
-  target_link_libraries(${PROJECT_NAME} Qt5::Widgets yaml-cpp)
-else()
-  target_link_libraries(${PROJECT_NAME} ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} yaml-cpp)
-endif()
+target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} Qt5::Widgets yaml-cpp)
 
 find_package(class_loader)
 class_loader_hide_library_symbols(${PROJECT_NAME})

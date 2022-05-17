@@ -479,6 +479,7 @@ void MainWindow::makeTabUI(QGroupBox *joint_widget, QGroupBox *torque_widget,
   // all torque on
   QSignalMapper *torque_on_signalMapper = new QSignalMapper(this);
   QPushButton *torque_on_button = new QPushButton(tr("All torque ON"));
+
   torque_layout->addWidget(torque_on_button, torque_row + 1, 4, 1, 1);
   torque_on_signalMapper->setMapping(torque_on_button, button_group);
   QObject::connect(torque_on_button, SIGNAL(clicked()), torque_on_signalMapper,
@@ -489,6 +490,7 @@ void MainWindow::makeTabUI(QGroupBox *joint_widget, QGroupBox *torque_widget,
   // all torque off
   QSignalMapper *torque_off_signalMapper = new QSignalMapper(this);
   QPushButton *torque_off_button = new QPushButton(tr("All torque OFF"));
+
   torque_layout->addWidget(torque_off_button, torque_row + 1, 5, 1, 1);
   torque_off_signalMapper->setMapping(torque_off_button, button_group);
   QObject::connect(torque_off_button, SIGNAL(clicked()),

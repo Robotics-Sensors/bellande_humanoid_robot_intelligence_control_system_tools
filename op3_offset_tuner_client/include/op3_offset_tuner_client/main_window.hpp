@@ -28,6 +28,8 @@
 #include <QMainWindow>
 #include <QSpinBox>
 #include <QtGui>
+#include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QCheckBox>
 
 #include <math.h>
 
