@@ -37,12 +37,11 @@
 
 #include <std_msgs/String.h>
 
+#include "op3_tuning_module_msgs/GetPresentJointOffsetData.h"
 #include "op3_tuning_module_msgs/JointOffsetData.h"
 #include "op3_tuning_module_msgs/JointOffsetPositionData.h"
 #include "op3_tuning_module_msgs/JointTorqueOnOff.h"
 #include "op3_tuning_module_msgs/JointTorqueOnOffArray.h"
-
-#include "op3_tuning_module_msgs/GetPresentJointOffsetData.h"
 
 #endif
 /*****************************************************************************
