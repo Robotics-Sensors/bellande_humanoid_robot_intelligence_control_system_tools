@@ -20,7 +20,6 @@ find_package(
 
 
 find_package(Qt5Widgets REQUIRED)
-# find_package(Qt5 REQUIRED COMPONENTS Widgets)
 
 set(
   op3_offset_tuner_client_SRCS
