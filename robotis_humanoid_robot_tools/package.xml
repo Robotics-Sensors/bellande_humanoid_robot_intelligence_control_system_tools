@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>robotis_humanoid_robot_tools</name>
+  <version>0.3.0</version>
+  <description>
+    ROS packages for the robotis_humanoid_robot_tools (meta package)
+  </description>
+  <license>Apache 2.0</license>
+  <author email="kmjung@robotis.com">Kayman</author>
+  <maintainer email="ronaldsonbellande@gmail.com">Ronaldson Bellande</maintainer>
+  <url type="website">http://wiki.ros.org/robotis_humanoid_robot_tools</url>
+  <url type="emanual">http://emanual.robotis.com/docs/en/platform/humanoid_robot/introduction/</url>
+  <url type="repository">https://github.com/ROBOTIS-GIT/ROBOTIS-HUMANOID_ROBOT-Tools</url>
+  <url type="bugtracker">https://github.com/ROBOTIS-GIT/ROBOTIS-HUMANOID_ROBOT-Tools/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>humanoid_robot_action_editor</build_depend>
+  <build_depend>humanoid_robot_camera_setting_tool</build_depend>
+  <build_depend>humanoid_robot_gui_demo</build_depend>
+  <build_depend>humanoid_robot_navigation</build_depend>
+  <build_depend>humanoid_robot_offset_tuner_client</build_depend>
+  <build_depend>humanoid_robot_offset_tuner_server</build_depend>
+  <build_depend>humanoid_robot_web_setting_tool</build_depend>
+
+  <build_export_depend>humanoid_robot_action_editor</build_export_depend>
+  <build_export_depend>humanoid_robot_camera_setting_tool</build_export_depend>
+  <build_export_depend>humanoid_robot_gui_demo</build_export_depend>
+  <build_export_depend>humanoid_robot_navigation</build_export_depend>
+  <build_export_depend>humanoid_robot_offset_tuner_client</build_export_depend>
+  <build_export_depend>humanoid_robot_offset_tuner_server</build_export_depend>
+  <build_export_depend>humanoid_robot_web_setting_tool</build_export_depend>
+
+  <exec_depend>humanoid_robot_action_editor</exec_depend>
+  <exec_depend>humanoid_robot_camera_setting_tool</exec_depend>
+  <exec_depend>humanoid_robot_gui_demo</exec_depend>
+  <exec_depend>humanoid_robot_navigation</exec_depend>
+  <exec_depend>humanoid_robot_offset_tuner_client</exec_depend>
+  <exec_depend>humanoid_robot_offset_tuner_server</exec_depend>
+  <exec_depend>humanoid_robot_web_setting_tool</exec_depend>
+
+  <export>
+    <metapackage />
+  </export>
+</package>
