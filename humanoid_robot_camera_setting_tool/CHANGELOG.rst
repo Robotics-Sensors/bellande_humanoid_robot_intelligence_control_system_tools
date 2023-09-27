@@ -1,0 +1,24 @@
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Changelog for package humanoid_robot_camera_setting_tool
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+0.3.0 (2021-05-06)
+------------------
+* Update package.xml and CMakeList.txt for noetic branch
+* Contributors: Ronaldson Bellande
+
+0.2.2 (2018-04-19)
+------------------
+* modified package.xml for dependency (yaml-cpp)
+* Contributors: Pyo
+
+0.2.1 (2018-04-19)
+------------------
+* none
+
+0.2.0 (2018-03-30)
+------------------
+* modified CMakeLists.txt and package.xml for dependencies
+* modified package.xml format to v2
+* split repository from ROBOTIS-HUMANOID_ROBOT
+* Contributors: Kayman, Pyo
