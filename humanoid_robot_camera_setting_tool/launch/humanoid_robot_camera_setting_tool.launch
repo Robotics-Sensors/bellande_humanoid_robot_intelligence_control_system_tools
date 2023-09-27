@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+
+<launch>
+  <arg  name="config_path" default="$(find humanoid_robot_camera_setting_tool)/config/camera_parameter.yaml"/>
+  <param name="video_device" type="string" value="/dev/video0" />
+	
+  <node pkg="humanoid_robot_camera_setting_tool" type="humanoid_robot_camera_setting_tool" name="humanoid_robot_camera_setting_node" output="screen">
+    <rosparam command="load" file="$(arg config_path)"/>
+    <param name="yaml_path" type="string" value="$(arg config_path)"/>
+    <!-- <param name="camera_node_name" type="string" value="/usb_cam_node" /> -->
+  </node>
+</launch>
