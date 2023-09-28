@@ -20,7 +20,7 @@
 
 #include "humanoid_robot_offset_tuner_server/humanoid_robot_offset_tuner_server.h"
 
-using namespace robotis_op;
+using namespace humanoid_robot_op;
 
 int main(int argc, char **argv) {
   ros::init(argc, argv, "offset_tuner_server_node");

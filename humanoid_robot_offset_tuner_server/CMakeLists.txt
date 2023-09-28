@@ -16,7 +16,7 @@ find_package(
   std_msgs
   humanoid_robot_offset_tuner_msgs
   dynamixel_sdk
-  robotis_controller
+  humanoid_robot_controller
   humanoid_robot_base_module
 )
 
@@ -63,7 +63,7 @@ catkin_package(
   std_msgs
   humanoid_robot_offset_tuner_msgs
   dynamixel_sdk
-  robotis_controller
+  humanoid_robot_controller
   humanoid_robot_base_module
 )
 

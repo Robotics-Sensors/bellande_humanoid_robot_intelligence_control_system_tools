@@ -22,7 +22,7 @@
 #include "dynamixel_sdk/dynamixel_sdk.h"
 #include "humanoid_robot_action_module/action_module.h"
 #include "humanoid_robot_base_module/base_module.h"
-#include "robotis_controller/robotis_controller.h"
+#include "humanoid_robot_controller/humanoid_robot_controller.h"
 #include <fcntl.h>
 // #include <ncurses.h>
 #include <pthread.h>
@@ -39,7 +39,7 @@
 
 #define ROBOT_NAME "HUMANOID_ROBOT"
 
-namespace robotis_op {
+namespace humanoid_robot_op {
 
 class ActionEditor {
 public:
@@ -134,8 +134,8 @@ private:
   action_file_define::Page page_;
   action_file_define::Step step_;
 
-  robotis_framework::RobotisController *ctrl_;
-  robotis_framework::Robot *robot_;
+  humanoid_robot_framework::RobotisController *ctrl_;
+  humanoid_robot_framework::Robot *robot_;
 
   std::map<int, std::string> joint_id_to_name_;
   std::map<int, int> joint_id_to_row_index_;
@@ -201,6 +201,6 @@ private:
   int cache_value_;
 };
 
-} // namespace robotis_op
+} // namespace humanoid_robot_op
 
 #endif /* HUMANOID_ROBOT_ACTION_EDITOR_H_ */

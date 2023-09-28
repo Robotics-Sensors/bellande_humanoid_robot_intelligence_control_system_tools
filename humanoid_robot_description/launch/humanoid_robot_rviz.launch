@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find humanoid_robot_description)/urdf/robotis_humanoid_robot.urdf.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find humanoid_robot_description)/urdf/humanoid_robot.urdf.xacro'" />
 
   <!-- send joint values -->
   <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">
