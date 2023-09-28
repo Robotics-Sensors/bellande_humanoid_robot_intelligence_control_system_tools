@@ -1,0 +1,5 @@
+# combination action page number and mp3 file path
+action_and_sound: 
+  1 : "/home/humanoid_robot/catkin_ws/src/ROBOTIS-HUMANOID_ROBOT-Demo/humanoid_robot_demo/Data/mp3/Intro01.mp3"
+  2 : "/home/humanoid_robot/catkin_ws/src/ROBOTIS-HUMANOID_ROBOT-Demo/humanoid_robot_demo/Data/mp3/Intro02.mp3"
+  3 : "/home/humanoid_robot/catkin_ws/src/ROBOTIS-HUMANOID_ROBOT-Demo/humanoid_robot_demo/Data/mp3/Intro03.mp3"

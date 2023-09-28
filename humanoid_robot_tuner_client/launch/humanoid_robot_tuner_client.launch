@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+
+<launch>    
+	
+    <node name="tuner_client" pkg="humanoid_robot_tuner_client" type="humanoid_robot_tuner_client" output="screen"/>    
+    
+    <node name="joint_plot" pkg="rqt_gui" type="rqt_gui" respawn="false"
+	  output="screen" args="--perspective-file $(find humanoid_robot_tuner_client)/config/r_ank_pitch.perspective"/>
+    
+</launch>

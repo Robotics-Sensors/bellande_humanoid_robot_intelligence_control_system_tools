@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>humanoid_robot_web_setting_tool</name>
+  <version>0.3.0</version>
+  <description>
+    The humanoid_robot_web_setting_tool package
+  </description>
+  <license>Apache 2.0</license>
+  <maintainer email="ronaldsonbellande@gmail.com">Ronaldson Bellande</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>rosbridge_server</build_depend>
+  <build_depend>web_video_server</build_depend>
+
+  <build_export_depend>rosbridge_server</build_export_depend>
+  <build_export_depend>web_video_server</build_export_depend>
+
+  <exec_depend>rosbridge_server</exec_depend>
+  <exec_depend>web_video_server</exec_depend>
+
+
+</package>
