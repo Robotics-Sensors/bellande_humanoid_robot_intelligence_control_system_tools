@@ -3,6 +3,8 @@
 --------------------------------------------------------------------------------------------------------
 Updated Version [humanoid_robot_tools](https://github.com/Robotics-Sensors/humanoid_robot_tools) readme.
 
+Old Version/Previous Used for Different Context [ROBOTIS-OP3-Tools](https://github.com/ROBOTIS-GIT/ROBOTIS-OP3-Tools) readme.
+
 --------------------------------------------------------------------------------------------------------
 ## Important
 The repository has diverged, as the old commits and codes are under the previous License and
