@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>humanoid_robot_action_editor</name>
+  <version>0.3.0</version>
+  <description>
+    The humanoid_robot_action_editor package porovides editor tool to make motion.
+  </description>
+  <license>Apache 2.0</license>
+  <maintainer email="ronaldsonbellande@gmail.com">Ronaldson Bellande</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>dynamixel_sdk</build_depend>
+  <build_depend>humanoid_robot_controller</build_depend>
+  <build_depend>humanoid_robot_device</build_depend>
+  <build_depend>humanoid_robot_action_module</build_depend>
+  <build_depend>humanoid_robot_base_module</build_depend>
+  <build_depend>libncurses-dev</build_depend>
+  <build_depend>yaml-cpp</build_depend>
+  <build_depend>humanoid_robot_manager</build_depend>
+  <build_depend>ros_mpg321_player</build_depend>
+
+  <build_export_depend>roscpp</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <build_export_depend>dynamixel_sdk</build_export_depend>
+  <build_export_depend>humanoid_robot_controller</build_export_depend>
+  <build_export_depend>humanoid_robot_device</build_export_depend>
+  <build_export_depend>humanoid_robot_action_module</build_export_depend>
+  <build_export_depend>humanoid_robot_base_module</build_export_depend>
+  <build_export_depend>libncurses-dev</build_export_depend>
+  <build_export_depend>yaml-cpp</build_export_depend>
+  <build_export_depend>humanoid_robot_manager</build_export_depend>
+  <build_export_depend>ros_mpg321_player</build_export_depend>
+
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>dynamixel_sdk</exec_depend>
+  <exec_depend>humanoid_robot_controller</exec_depend>
+  <exec_depend>humanoid_robot_device</exec_depend>
+  <exec_depend>humanoid_robot_action_module</exec_depend>
+  <exec_depend>humanoid_robot_base_module</exec_depend>
+  <exec_depend>libncurses-dev</exec_depend>
+  <exec_depend>yaml-cpp</exec_depend>
+  <exec_depend>humanoid_robot_manager</exec_depend>
+  <exec_depend>ros_mpg321_player</exec_depend>
+
+</package>
