@@ -95,7 +95,7 @@
                 },
                 "topics": {
                   "type": "repr",
-                  "repr": "[u'/robotis/goal_joint_states/position[11]', u'/robotis/present_joint_states/position[11]']"
+                  "repr": "[u'/humanoid_robot/goal_joint_states/position[11]', u'/humanoid_robot/present_joint_states/position[11]']"
                 },
                 "y_limits": {
                   "type": "repr",

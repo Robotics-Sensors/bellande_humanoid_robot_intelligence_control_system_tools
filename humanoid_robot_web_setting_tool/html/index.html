@@ -147,7 +147,7 @@
 		
 		var demoModeCommand = new ROSLIB.Topic({
 			ros: ros,
-			name: '/robotis/mode_command',
+			name: '/humanoid_robot/mode_command',
 			messageType: 'std_msgs/String'
 		});
 
@@ -161,7 +161,7 @@
 		
 		var demoCommand = new ROSLIB.Topic({
 			ros: ros,
-			name: '/robotis/demo_command',
+			name: '/humanoid_robot/demo_command',
 			messageType: 'std_msgs/String'
 		});
 
@@ -202,7 +202,7 @@
 		
 		var actionIndex = new ROSLIB.Topic({
 			ros: ros,
-			name: '/robotis/action/page_num',
+			name: '/humanoid_robot/action/page_num',
 			messageType: 'std_msgs/Int32'
 		});
 

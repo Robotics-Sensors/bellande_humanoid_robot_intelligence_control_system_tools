@@ -30,7 +30,7 @@
  ** Namespaces
  *****************************************************************************/
 
-namespace robotis_op {
+namespace humanoid_robot_op {
 
 using namespace Qt;
 
@@ -262,7 +262,7 @@ void MainWindow::setUserShortcut() {
 // mode control
 // it's not used now
 void MainWindow::setMode(bool check) {
-  robotis_controller_msgs::JointCtrlModule _control_msg;
+  humanoid_robot_controller_msgs::JointCtrlModule _control_msg;
 
   QList<QComboBox *> _combo_children =
       ui_.widget_mode->findChildren<QComboBox *>();
@@ -652,4 +652,4 @@ void MainWindow::closeEvent(QCloseEvent *event) {
   QMainWindow::closeEvent(event);
 }
 
-} // namespace robotis_op
+} // namespace humanoid_robot_op

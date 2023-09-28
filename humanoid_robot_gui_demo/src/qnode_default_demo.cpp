@@ -22,35 +22,35 @@
 
 #include "../include/humanoid_robot_gui_demo/qnode.hpp"
 
-namespace robotis_op {
+namespace humanoid_robot_op {
 
 void QNodeHUMANOID_ROBOT::init_default_demo(ros::NodeHandle &ros_node) {
-  init_gyro_pub_ = ros_node.advertise<robotis_controller_msgs::SyncWriteItem>(
-      "/robotis/sync_write_item", 0);
+  init_gyro_pub_ = ros_node.advertise<humanoid_robot_controller_msgs::SyncWriteItem>(
+      "/humanoid_robot/sync_write_item", 0);
   set_head_joint_angle_pub_ = ros_node.advertise<sensor_msgs::JointState>(
-      "/robotis/head_control/set_joint_states", 0);
+      "/humanoid_robot/head_control/set_joint_states", 0);
 
   current_joint_states_sub_ =
-      ros_node.subscribe("/robotis/present_joint_states", 10,
+      ros_node.subscribe("/humanoid_robot/present_joint_states", 10,
                          &QNodeHUMANOID_ROBOT::updateHeadJointStatesCallback, this);
 
   // Walking
   set_walking_command_pub =
-      ros_node.advertise<std_msgs::String>("/robotis/walking/command", 0);
+      ros_node.advertise<std_msgs::String>("/humanoid_robot/walking/command", 0);
   set_walking_param_pub =
       ros_node.advertise<humanoid_robot_walking_module_msgs::WalkingParam>(
-          "/robotis/walking/set_params", 0);
+          "/humanoid_robot/walking/set_params", 0);
   get_walking_param_client_ =
       ros_node.serviceClient<humanoid_robot_walking_module_msgs::GetWalkingParam>(
-          "/robotis/walking/get_params");
+          "/humanoid_robot/walking/get_params");
 
   // Action
   motion_index_pub_ =
-      ros_node.advertise<std_msgs::Int32>("/robotis/action/page_num", 0);
+      ros_node.advertise<std_msgs::Int32>("/humanoid_robot/action/page_num", 0);
 
   // Demo
   demo_command_pub_ =
-      ros_node.advertise<std_msgs::String>("/robotis/demo_command", 0);
+      ros_node.advertise<std_msgs::String>("/humanoid_robot/demo_command", 0);
 
   std::string default_motion_path =
       ros::package::getPath(ROS_PACKAGE_NAME) + "/config/gui_motion.yaml";
@@ -137,7 +137,7 @@ void QNodeHUMANOID_ROBOT::applyWalkingParam(
 }
 
 void QNodeHUMANOID_ROBOT::initGyro() {
-  robotis_controller_msgs::SyncWriteItem init_gyro_msg;
+  humanoid_robot_controller_msgs::SyncWriteItem init_gyro_msg;
   init_gyro_msg.item_name = "imu_control";
   init_gyro_msg.joint_name.push_back("open-cr");
   init_gyro_msg.value.push_back(0x08);
@@ -191,7 +191,7 @@ void QNodeHUMANOID_ROBOT::setDemoCommand(const std::string &command) {
 }
 
 void QNodeHUMANOID_ROBOT::setActionModuleBody() {
-  robotis_controller_msgs::JointCtrlModule control_msg;
+  humanoid_robot_controller_msgs::JointCtrlModule control_msg;
 
   std::string module_name = "action_module";
 
@@ -213,7 +213,7 @@ void QNodeHUMANOID_ROBOT::setActionModuleBody() {
 }
 
 void QNodeHUMANOID_ROBOT::setModuleToDemo() {
-  robotis_controller_msgs::JointCtrlModule control_msg;
+  humanoid_robot_controller_msgs::JointCtrlModule control_msg;
 
   std::string body_module = "walking_module";
   std::string head_module = "head_control_module";
@@ -279,4 +279,4 @@ void QNodeHUMANOID_ROBOT::parseMotionMapFromYaml(const std::string &path) {
   }
 }
 
-} // namespace robotis_op
+} // namespace humanoid_robot_op

@@ -14,8 +14,8 @@ find_package(
   roscpp
   std_msgs
   dynamixel_sdk
-  robotis_controller
-  robotis_device
+  humanoid_robot_controller
+  humanoid_robot_device
   humanoid_robot_action_module
   humanoid_robot_base_module
 )
@@ -64,8 +64,8 @@ catkin_package(
   roscpp
   std_msgs
   dynamixel_sdk
-  robotis_controller
-  robotis_device
+  humanoid_robot_controller
+  humanoid_robot_device
   humanoid_robot_action_module
   humanoid_robot_base_module
   DEPENDS CURSES

@@ -37,8 +37,8 @@ public:
   explicit PreviewWalkingForm(QWidget *parent = 0);
   ~PreviewWalkingForm();
 
-  bool setQNode(robotis_op::QNodeHUMANOID_ROBOT *qnode);
-  bool init(robotis_op::QNodeHUMANOID_ROBOT *qnode);
+  bool setQNode(humanoid_robot_op::QNodeHUMANOID_ROBOT *qnode);
+  bool init(humanoid_robot_op::QNodeHUMANOID_ROBOT *qnode);
 
 public Q_SLOTS:
 
@@ -81,7 +81,7 @@ public Q_SLOTS:
 
 private:
   Ui::PreviewWalkingForm *p_walking_ui;
-  robotis_op::QNodeHUMANOID_ROBOT *qnode_humanoid_robot_;
+  humanoid_robot_op::QNodeHUMANOID_ROBOT *qnode_humanoid_robot_;
 
   // preview walking
   void sendPWalkingCommand(const std::string &command,

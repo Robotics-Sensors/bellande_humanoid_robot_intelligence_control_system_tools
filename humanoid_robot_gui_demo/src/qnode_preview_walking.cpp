@@ -22,37 +22,37 @@
 
 #include "../include/humanoid_robot_gui_demo/qnode.hpp"
 
-namespace robotis_op {
+namespace humanoid_robot_op {
 
 void QNodeHUMANOID_ROBOT::init_preview_walking(ros::NodeHandle &ros_node) {
   // preview walking
   foot_step_command_pub_ =
       ros_node.advertise<humanoid_robot_online_walking_module_msgs::FootStepCommand>(
-          "/robotis/online_walking/foot_step_command", 0);
+          "/humanoid_robot/online_walking/foot_step_command", 0);
   walking_param_pub_ =
       ros_node.advertise<humanoid_robot_online_walking_module_msgs::WalkingParam>(
-          "/robotis/online_walking/walking_param", 0);
+          "/humanoid_robot/online_walking/walking_param", 0);
   set_walking_footsteps_pub_ =
       ros_node.advertise<humanoid_robot_online_walking_module_msgs::Step2DArray>(
-          "/robotis/online_walking/footsteps_2d", 0);
+          "/humanoid_robot/online_walking/footsteps_2d", 0);
 
   body_offset_pub_ = ros_node.advertise<geometry_msgs::Pose>(
-      "/robotis/online_walking/body_offset", 0);
+      "/humanoid_robot/online_walking/body_offset", 0);
   foot_distance_pub_ = ros_node.advertise<std_msgs::Float64>(
-      "/robotis/online_walking/foot_distance", 0);
+      "/humanoid_robot/online_walking/foot_distance", 0);
   wholebody_balance_pub_ = ros_node.advertise<std_msgs::String>(
-      "/robotis/online_walking/wholebody_balance_msg", 0);
+      "/humanoid_robot/online_walking/wholebody_balance_msg", 0);
   reset_body_msg_pub_ = ros_node.advertise<std_msgs::Bool>(
-      "/robotis/online_walking/reset_body", 0);
+      "/humanoid_robot/online_walking/reset_body", 0);
   joint_pose_msg_pub_ =
       ros_node.advertise<humanoid_robot_online_walking_module_msgs::JointPose>(
-          "/robotis/online_walking/goal_joint_pose", 0);
+          "/humanoid_robot/online_walking/goal_joint_pose", 0);
 
   humanoid_footstep_client_ =
       ros_node.serviceClient<humanoid_nav_msgs::PlanFootsteps>(
           "plan_footsteps");
   marker_pub_ = ros_node.advertise<visualization_msgs::MarkerArray>(
-      "/robotis/demo/foot_step_marker", 0);
+      "/humanoid_robot/demo/foot_step_marker", 0);
 
   // interacrive marker
   rviz_clicked_point_sub_ = ros_node.subscribe(
@@ -730,4 +730,4 @@ void QNodeHUMANOID_ROBOT::sendJointPoseMsg(humanoid_robot_online_walking_module_
   log(Info, "Send Joint Pose Msg");
 }
 
-} // namespace robotis_op
+} // namespace humanoid_robot_op

@@ -3,7 +3,7 @@
 
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/robotis_humanoid_robot</robotNamespace>
+      <robotNamespace>/humanoid_robot</robotNamespace>
     </plugin>
   </gazebo>
 
@@ -290,7 +290,7 @@
       <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
         <alwaysOn>true</alwaysOn>
         <updateRate>30</updateRate>
-        <cameraName>robotis_humanoid_robot/camera</cameraName>
+        <cameraName>humanoid_robot/camera</cameraName>
         <imageTopicName>image_raw</imageTopicName>
         <cameraInfoTopicName>camera_info</cameraInfoTopicName>
         <frameName>cam_link</frameName>
@@ -314,7 +314,7 @@
       <visualize>true</visualize>
       <topic>__default_topic__</topic>
       <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
-        <topicName>robotis_humanoid_robot/imu</topicName>
+        <topicName>humanoid_robot/imu</topicName>
         <bodyName>body_link</bodyName>
         <updateRateHZ>10.0</updateRateHZ>
         <gaussianNoise>0.0</gaussianNoise>

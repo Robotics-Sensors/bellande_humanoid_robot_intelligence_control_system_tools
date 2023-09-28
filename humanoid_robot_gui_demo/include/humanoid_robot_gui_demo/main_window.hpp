@@ -34,7 +34,7 @@
  ** Namespace
  *****************************************************************************/
 
-namespace robotis_op {
+namespace humanoid_robot_op {
 
 #define DEGREE2RADIAN (M_PI / 180.0)
 #define RADIAN2DEGREE (180.0 / M_PI)
@@ -136,6 +136,6 @@ private:
   std::map<std::string, QList<QWidget *>> module_ui_table_;
 };
 
-} // namespace robotis_op
+} // namespace humanoid_robot_op
 
 #endif // HUMANOID_ROBOT_DEMO_MAIN_WINDOW_H

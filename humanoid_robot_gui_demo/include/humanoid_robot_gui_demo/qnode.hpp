@@ -53,10 +53,10 @@
 #include <visualization_msgs/MarkerArray.h>
 #include <yaml-cpp/yaml.h>
 
-#include "robotis_controller_msgs/GetJointModule.h"
-#include "robotis_controller_msgs/JointCtrlModule.h"
-#include "robotis_controller_msgs/StatusMsg.h"
-#include "robotis_controller_msgs/SyncWriteItem.h"
+#include "humanoid_robot_controller_msgs/GetJointModule.h"
+#include "humanoid_robot_controller_msgs/JointCtrlModule.h"
+#include "humanoid_robot_controller_msgs/StatusMsg.h"
+#include "humanoid_robot_controller_msgs/SyncWriteItem.h"
 
 // walking demo
 #include "humanoid_robot_walking_module_msgs/GetWalkingParam.h"
@@ -78,7 +78,7 @@
  ** Namespaces
  *****************************************************************************/
 
-namespace robotis_op {
+namespace humanoid_robot_op {
 
 /*****************************************************************************
  ** Class
@@ -100,7 +100,7 @@ public:
            std::string sender = "Demo");
   void clearLog();
   void assemble_lidar();
-  void setJointControlMode(const robotis_controller_msgs::JointCtrlModule &msg);
+  void setJointControlMode(const humanoid_robot_controller_msgs::JointCtrlModule &msg);
   void setControlMode(const std::string &mode);
   bool getJointNameFromID(const int &id, std::string &joint_name);
   bool getIDFromJointName(const std::string &joint_name, int &id);
@@ -183,11 +183,11 @@ private:
   void parseJointNameFromYaml(const std::string &path);
   void parseMotionMapFromYaml(const std::string &path);
   void refreshCurrentJointControlCallback(
-      const robotis_controller_msgs::JointCtrlModule::ConstPtr &msg);
+      const humanoid_robot_controller_msgs::JointCtrlModule::ConstPtr &msg);
   void
   updateHeadJointStatesCallback(const sensor_msgs::JointState::ConstPtr &msg);
   void
-  statusMsgCallback(const robotis_controller_msgs::StatusMsg::ConstPtr &msg);
+  statusMsgCallback(const humanoid_robot_controller_msgs::StatusMsg::ConstPtr &msg);
 
   // interactive marker
   void pointStampedCallback(const geometry_msgs::PointStamped::ConstPtr &msg);
@@ -270,7 +270,7 @@ private:
   std::map<std::string, bool> using_mode_table_;
 };
 
-} // namespace robotis_op
+} // namespace humanoid_robot_op
 
 template <typename T> T deg2rad(T deg) { return deg * M_PI / 180; }
 

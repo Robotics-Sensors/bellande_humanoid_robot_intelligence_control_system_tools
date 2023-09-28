@@ -18,7 +18,7 @@
 
 #include "humanoid_robot_action_editor/action_editor.h"
 
-using namespace robotis_op;
+using namespace humanoid_robot_op;
 
 ActionEditor::ActionEditor() {
   ctrl_ = 0;
@@ -229,7 +229,7 @@ void ActionEditor::moveRightCursor() {
 bool ActionEditor::initializeActionEditor(std::string robot_file_path,
                                           std::string init_file_path,
                                           std::string offset_file_path) {
-  ctrl_ = robotis_framework::RobotisController::getInstance();
+  ctrl_ = humanoid_robot_framework::RobotisController::getInstance();
 
   // Controller Initialize with robot file info
   if (ctrl_->initialize(robot_file_path, init_file_path) == false) {
@@ -239,7 +239,7 @@ bool ActionEditor::initializeActionEditor(std::string robot_file_path,
 
   ctrl_->loadOffset(offset_file_path);
   ctrl_->addMotionModule(
-      (robotis_framework::MotionModule *)ActionModule::getInstance());
+      (humanoid_robot_framework::MotionModule *)ActionModule::getInstance());
   ActionModule::getInstance()->enableAllJoints();
 
   robot_ = ctrl_->robot_;
@@ -247,15 +247,15 @@ bool ActionEditor::initializeActionEditor(std::string robot_file_path,
   // Initialize Publisher
   ros::NodeHandle nh;
   enable_ctrl_module_pub_ =
-      nh.advertise<std_msgs::String>("/robotis/enable_ctrl_module", 0);
+      nh.advertise<std_msgs::String>("/humanoid_robot/enable_ctrl_module", 0);
   play_sound_pub_ = nh.advertise<std_msgs::String>("/play_sound_file", 0);
 
   // Initialize Member variable
-  for (std::map<std::string, robotis_framework::Dynamixel *>::iterator it =
+  for (std::map<std::string, humanoid_robot_framework::Dynamixel *>::iterator it =
            robot_->dxls_.begin();
        it != robot_->dxls_.end(); it++) {
     std::string joint_name = it->first;
-    robotis_framework::Dynamixel *dxl_info = it->second;
+    humanoid_robot_framework::Dynamixel *dxl_info = it->second;
 
     joint_name_to_id_[joint_name] = dxl_info->id_;
     joint_id_to_name_[dxl_info->id_] = joint_name;
@@ -703,7 +703,7 @@ void ActionEditor::readStep() {
        it != joint_id_to_row_index_.end(); it++) {
     id = it->first;
     std::string joint_name = joint_id_to_name_[id];
-    std::map<std::string, robotis_framework::Dynamixel *>::iterator dxls_it;
+    std::map<std::string, humanoid_robot_framework::Dynamixel *>::iterator dxls_it;
 
     dxls_it = robot_->dxls_.find(joint_name);
     if (dxls_it != robot_->dxls_.end()) {

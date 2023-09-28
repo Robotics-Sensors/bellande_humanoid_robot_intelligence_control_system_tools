@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>robotis_humanoid_robot_tools</name>
+  <name>humanoid_robot_tools</name>
   <version>0.3.0</version>
   <description>
-    ROS packages for the robotis_humanoid_robot_tools (meta package)
+    ROS packages for the humanoid_robot_tools (meta package)
   </description>
   <license>Apache 2.0</license>
   <maintainer email="ronaldsonbellande@gmail.com">Ronaldson Bellande</maintainer>

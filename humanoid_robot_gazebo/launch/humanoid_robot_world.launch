@@ -20,12 +20,12 @@
   </include>
 
   <!-- Load the URDF into the ROS Parameter Server -->
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find humanoid_robot_description)/urdf/robotis_humanoid_robot.urdf.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find humanoid_robot_description)/urdf/humanoid_robot.urdf.xacro'" />
 
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
-  <node pkg="gazebo_ros" type="spawn_model" name="urdf_spawner" respawn="false" output="screen" args="-urdf -model robotis_humanoid_robot -z 0.285 -param robot_description" />
+  <node pkg="gazebo_ros" type="spawn_model" name="urdf_spawner" respawn="false" output="screen" args="-urdf -model humanoid_robot -z 0.285 -param robot_description" />
 
-  <!-- ros_control robotis humanoid launch file -->
+  <!-- ros_control humanoid_robot humanoid launch file -->
   <group if="$(arg position_controller)">
     <include file="$(find humanoid_robot_gazebo)/launch/position_controller.launch" />
   </group>

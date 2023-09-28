@@ -13,8 +13,8 @@
   <build_depend>roscpp</build_depend>
   <build_depend>std_msgs</build_depend>
   <build_depend>dynamixel_sdk</build_depend>
-  <build_depend>robotis_controller</build_depend>
-  <build_depend>robotis_device</build_depend>
+  <build_depend>humanoid_robot_controller</build_depend>
+  <build_depend>humanoid_robot_device</build_depend>
   <build_depend>humanoid_robot_action_module</build_depend>
   <build_depend>humanoid_robot_base_module</build_depend>
   <build_depend>libncurses-dev</build_depend>
@@ -25,8 +25,8 @@
   <build_export_depend>roscpp</build_export_depend>
   <build_export_depend>std_msgs</build_export_depend>
   <build_export_depend>dynamixel_sdk</build_export_depend>
-  <build_export_depend>robotis_controller</build_export_depend>
-  <build_export_depend>robotis_device</build_export_depend>
+  <build_export_depend>humanoid_robot_controller</build_export_depend>
+  <build_export_depend>humanoid_robot_device</build_export_depend>
   <build_export_depend>humanoid_robot_action_module</build_export_depend>
   <build_export_depend>humanoid_robot_base_module</build_export_depend>
   <build_export_depend>libncurses-dev</build_export_depend>
@@ -37,8 +37,8 @@
   <exec_depend>roscpp</exec_depend>
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>dynamixel_sdk</exec_depend>
-  <exec_depend>robotis_controller</exec_depend>
-  <exec_depend>robotis_device</exec_depend>
+  <exec_depend>humanoid_robot_controller</exec_depend>
+  <exec_depend>humanoid_robot_device</exec_depend>
   <exec_depend>humanoid_robot_action_module</exec_depend>
   <exec_depend>humanoid_robot_base_module</exec_depend>
   <exec_depend>libncurses-dev</exec_depend>

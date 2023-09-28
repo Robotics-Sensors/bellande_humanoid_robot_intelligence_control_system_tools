@@ -23,7 +23,7 @@ find_package(
   interactive_markers
   cmake_modules
   eigen_conversions
-  robotis_controller_msgs
+  humanoid_robot_controller_msgs
   humanoid_robot_walking_module_msgs
   humanoid_robot_online_walking_module_msgs
   humanoid_nav_msgs
@@ -91,7 +91,7 @@ catkin_package(
   interactive_markers
   cmake_modules
   eigen_conversions
-  robotis_controller_msgs
+  humanoid_robot_controller_msgs
   humanoid_robot_walking_module_msgs
   humanoid_robot_online_walking_module_msgs
   humanoid_nav_msgs

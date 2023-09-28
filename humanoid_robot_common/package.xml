@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>robotis_humanoid_robot_common</name>
+  <name>humanoid_robot_common</name>
   <version>0.3.0</version>
   <description>
     ROS packages for the ROBOTIS HUMANOID_ROBOT (meta package).

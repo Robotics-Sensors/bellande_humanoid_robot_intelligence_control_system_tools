@@ -26,7 +26,7 @@ PreviewWalkingForm::PreviewWalkingForm(QWidget *parent)
 
 PreviewWalkingForm::~PreviewWalkingForm() { delete p_walking_ui; }
 
-bool PreviewWalkingForm::init(robotis_op::QNodeHUMANOID_ROBOT *qnode) {
+bool PreviewWalkingForm::init(humanoid_robot_op::QNodeHUMANOID_ROBOT *qnode) {
   bool result = setQNode(qnode);
 
   if (result == true) {
@@ -208,7 +208,7 @@ void PreviewWalkingForm::sendPWalkingCommand(const std::string &command,
   qnode_humanoid_robot_->sendFootStepCommandMsg(msg);
 }
 
-bool PreviewWalkingForm::setQNode(robotis_op::QNodeHUMANOID_ROBOT *qnode) {
+bool PreviewWalkingForm::setQNode(humanoid_robot_op::QNodeHUMANOID_ROBOT *qnode) {
   if (qnode == NULL)
     return false;
 

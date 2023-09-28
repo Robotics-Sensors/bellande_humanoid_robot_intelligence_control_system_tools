@@ -26,7 +26,7 @@
  ** Namespaces
  *****************************************************************************/
 
-namespace robotis_op {
+namespace humanoid_robot_op {
 
 /*****************************************************************************
  ** Implementation
@@ -67,22 +67,22 @@ bool QNodeHUMANOID_ROBOT::init() {
 
   // Add your ros communications here.
   module_control_pub_ =
-      ros_node.advertise<robotis_controller_msgs::JointCtrlModule>(
-          "/robotis/set_joint_ctrl_modules", 0);
+      ros_node.advertise<humanoid_robot_controller_msgs::JointCtrlModule>(
+          "/humanoid_robot/set_joint_ctrl_modules", 0);
   module_control_preset_pub_ =
-      ros_node.advertise<std_msgs::String>("/robotis/enable_ctrl_module", 0);
+      ros_node.advertise<std_msgs::String>("/humanoid_robot/enable_ctrl_module", 0);
   init_pose_pub_ =
-      ros_node.advertise<std_msgs::String>("/robotis/base/ini_pose", 0);
+      ros_node.advertise<std_msgs::String>("/humanoid_robot/base/ini_pose", 0);
 
-  status_msg_sub_ = ros_node.subscribe("/robotis/status", 10,
+  status_msg_sub_ = ros_node.subscribe("/humanoid_robot/status", 10,
                                        &QNodeHUMANOID_ROBOT::statusMsgCallback, this);
   current_module_control_sub_ =
-      ros_node.subscribe("/robotis/present_joint_ctrl_modules", 10,
+      ros_node.subscribe("/humanoid_robot/present_joint_ctrl_modules", 10,
                          &QNodeHUMANOID_ROBOT::refreshCurrentJointControlCallback, this);
 
   get_module_control_client_ =
-      ros_node.serviceClient<robotis_controller_msgs::GetJointModule>(
-          "/robotis/get_present_joint_ctrl_modules");
+      ros_node.serviceClient<humanoid_robot_controller_msgs::GetJointModule>(
+          "/humanoid_robot/get_present_joint_ctrl_modules");
 
   // For default demo
   init_default_demo(ros_node);
@@ -277,7 +277,7 @@ void QNodeHUMANOID_ROBOT::moveInitPose() {
 
 // set mode(module) to each joint
 void QNodeHUMANOID_ROBOT::setJointControlMode(
-    const robotis_controller_msgs::JointCtrlModule &msg) {
+    const humanoid_robot_controller_msgs::JointCtrlModule &msg) {
   module_control_pub_.publish(msg);
 }
 
@@ -294,7 +294,7 @@ void QNodeHUMANOID_ROBOT::setControlMode(const std::string &mode) {
 
 // get current mode(module) of joints
 void QNodeHUMANOID_ROBOT::getJointControlMode() {
-  robotis_controller_msgs::GetJointModule get_joint;
+  humanoid_robot_controller_msgs::GetJointModule get_joint;
   std::map<std::string, int> service_map;
 
   // _get_joint.request
@@ -345,7 +345,7 @@ void QNodeHUMANOID_ROBOT::getJointControlMode() {
 }
 
 void QNodeHUMANOID_ROBOT::refreshCurrentJointControlCallback(
-    const robotis_controller_msgs::JointCtrlModule::ConstPtr &msg) {
+    const humanoid_robot_controller_msgs::JointCtrlModule::ConstPtr &msg) {
   ROS_INFO("set current joint module");
   // int _index = 0;
 
@@ -392,7 +392,7 @@ void QNodeHUMANOID_ROBOT::refreshCurrentJointControlCallback(
 
 // LOG
 void QNodeHUMANOID_ROBOT::statusMsgCallback(
-    const robotis_controller_msgs::StatusMsg::ConstPtr &msg) {
+    const humanoid_robot_controller_msgs::StatusMsg::ConstPtr &msg) {
   log((LogLevel)msg->type, msg->status_msg, msg->module_name);
 }
 
@@ -463,4 +463,4 @@ void QNodeHUMANOID_ROBOT::clearLog() {
   logging_model_.removeRows(0, logging_model_.rowCount());
 }
 
-} // namespace robotis_op
+} // namespace humanoid_robot_op

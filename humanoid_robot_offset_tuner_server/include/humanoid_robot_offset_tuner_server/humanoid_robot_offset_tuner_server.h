@@ -29,9 +29,9 @@
 #include "humanoid_robot_offset_tuner_msgs/GetPresentJointOffsetData.h"
 #include "humanoid_robot_offset_tuner_msgs/JointOffsetData.h"
 #include "humanoid_robot_offset_tuner_msgs/JointTorqueOnOffArray.h"
-#include "robotis_controller/robotis_controller.h"
+#include "humanoid_robot_controller/humanoid_robot_controller.h"
 
-namespace robotis_op {
+namespace humanoid_robot_op {
 
 class JointOffsetData {
 public:
@@ -61,7 +61,7 @@ public:
 };
 
 class OffsetTunerServer
-    : public robotis_framework::Singleton<OffsetTunerServer> {
+    : public humanoid_robot_framework::Singleton<OffsetTunerServer> {
 
 public:
   OffsetTunerServer();
@@ -89,7 +89,7 @@ private:
   void setCtrlModule(std::string module);
   void getInitPose(const std::string &path);
 
-  robotis_framework::RobotisController *controller_;
+  humanoid_robot_framework::RobotisController *controller_;
 
   std::string offset_file_;
   std::string robot_file_;
@@ -104,6 +104,6 @@ private:
   ros::ServiceServer offset_data_server_;
 };
 
-} // namespace robotis_op
+} // namespace humanoid_robot_op
 
 #endif /* HUMANOID_ROBOT_OFFSET_TUNER_SERVER_H_ */

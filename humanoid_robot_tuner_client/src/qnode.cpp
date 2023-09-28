@@ -57,21 +57,21 @@ bool QNode::init() {
   // Add your ros communications here
   joint_offset_data_pub_ =
       ros_node.advertise<humanoid_robot_tuning_module_msgs::JointOffsetData>(
-          "/robotis/tuning_module/joint_offset_data", 0);
+          "/humanoid_robot/tuning_module/joint_offset_data", 0);
   joint_gain_data_pub_ =
       ros_node.advertise<humanoid_robot_tuning_module_msgs::JointOffsetData>(
-          "/robotis/tuning_module/joint_gain_data", 0);
+          "/humanoid_robot/tuning_module/joint_gain_data", 0);
   torque_enable_pub_ =
       ros_node.advertise<humanoid_robot_tuning_module_msgs::JointTorqueOnOffArray>(
-          "/robotis/tuning_module/torque_enable", 0);
+          "/humanoid_robot/tuning_module/torque_enable", 0);
   command_pub_ =
-      ros_node.advertise<std_msgs::String>("/robotis/tuning_module/command", 0);
+      ros_node.advertise<std_msgs::String>("/humanoid_robot/tuning_module/command", 0);
   tuning_pose_pub_ = ros_node.advertise<std_msgs::String>(
-      "/robotis/tuning_module/tuning_pose", 0);
+      "/humanoid_robot/tuning_module/tuning_pose", 0);
 
   get_present_joint_offset_data_client_ =
       ros_node.serviceClient<humanoid_robot_tuning_module_msgs::GetPresentJointOffsetData>(
-          "/robotis/tuning_module/get_present_joint_offset_data");
+          "/humanoid_robot/tuning_module/get_present_joint_offset_data");
 
   std::string default_config_path =
       ros::package::getPath(ROS_PACKAGE_NAME) + "/config/joint_data.yaml";

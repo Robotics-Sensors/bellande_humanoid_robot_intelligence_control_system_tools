@@ -24,7 +24,7 @@ Changelog for package humanoid_robot_description
 
 0.1.0 (2018-03-26)
 ------------------
-* added robotis-humanoid_robot robot description
+* added humanoid_robot-humanoid_robot robot description
 * modified the launch file to view on RViz
 * modified for walking upgrade
 * refactoring to release

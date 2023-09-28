@@ -6,7 +6,7 @@
   -->
 
   <!-- left leg -->
-  <xacro:macro name="robotis_humanoid_robot_l_arm" params="parent">
+  <xacro:macro name="humanoid_robot_l_arm" params="parent">
 
   <!-- left shoulder pitch joint -->
   <joint name="l_sho_pitch" type="revolute">

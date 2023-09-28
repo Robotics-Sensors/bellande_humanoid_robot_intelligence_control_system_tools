@@ -296,7 +296,7 @@ Visualization Manager:
       Value: true
     - Class: rviz/MarkerArray
       Enabled: true
-      Marker Topic: /robotis/demo/foot_step_marker
+      Marker Topic: /humanoid_robot/demo/foot_step_marker
       Name: MarkerArray
       Namespaces:
         foot_step_marker: true

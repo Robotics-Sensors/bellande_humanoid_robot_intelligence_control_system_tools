@@ -6,7 +6,7 @@
   -->
 
   <!-- right leg -->
-  <xacro:macro name="robotis_humanoid_robot_r_leg" params="parent">
+  <xacro:macro name="humanoid_robot_r_leg" params="parent">
 
   <!-- right hip yaw joint -->
   <joint name="r_hip_yaw" type="revolute">

@@ -20,7 +20,7 @@
 #define OFFSET_ROSPARAM_KEY "offset"
 #define OFFSET_INIT_POS_ROSPARAM_KEY "init_pose_for_offset_tuner"
 
-namespace robotis_op {
+namespace humanoid_robot_op {
 
 OffsetTunerServer::OffsetTunerServer() {
   offset_file_ = "";
@@ -34,7 +34,7 @@ OffsetTunerServer::~OffsetTunerServer() {}
 void OffsetTunerServer::setCtrlModule(std::string module) {
   ros::NodeHandle ros_node;
   ros::Publisher set_ctrl_module_pub =
-      ros_node.advertise<std_msgs::String>("/robotis/enable_ctrl_module", 1);
+      ros_node.advertise<std_msgs::String>("/humanoid_robot/enable_ctrl_module", 1);
 
   std_msgs::String control_msg;
 
@@ -44,7 +44,7 @@ void OffsetTunerServer::setCtrlModule(std::string module) {
 
 bool OffsetTunerServer::initialize() {
   // torque on dxls
-  controller_ = robotis_framework::RobotisController::getInstance();
+  controller_ = humanoid_robot_framework::RobotisController::getInstance();
 
   dynamixel::PortHandler *port_handler =
       (dynamixel::PortHandler *)dynamixel::PortHandler::getPortHandler(
@@ -85,10 +85,10 @@ bool OffsetTunerServer::initialize() {
   }
   // controller_->LoadOffset(offset_file_);
   controller_->addMotionModule(
-      (robotis_framework::MotionModule *)BaseModule::getInstance());
+      (humanoid_robot_framework::MotionModule *)BaseModule::getInstance());
 
   // Initialize RobotOffsetData
-  for (std::map<std::string, robotis_framework::Dynamixel *>::iterator dxls_it =
+  for (std::map<std::string, humanoid_robot_framework::Dynamixel *>::iterator dxls_it =
            controller_->robot_->dxls_.begin();
        dxls_it != controller_->robot_->dxls_.end(); dxls_it++) {
     std::string joint_name = dxls_it->first;
@@ -123,18 +123,18 @@ bool OffsetTunerServer::initialize() {
   }
 
   send_tra_sub_ =
-      ros_node.subscribe("/robotis/base/send_tra", 10,
+      ros_node.subscribe("/humanoid_robot/base/send_tra", 10,
                          &OffsetTunerServer::stringMsgsCallBack, this);
   joint_offset_data_sub_ =
-      ros_node.subscribe("/robotis/offset_tuner/joint_offset_data", 10,
+      ros_node.subscribe("/humanoid_robot/offset_tuner/joint_offset_data", 10,
                          &OffsetTunerServer::jointOffsetDataCallback, this);
   joint_torque_enable_sub_ =
-      ros_node.subscribe("/robotis/offset_tuner/torque_enable", 10,
+      ros_node.subscribe("/humanoid_robot/offset_tuner/torque_enable", 10,
                          &OffsetTunerServer::jointTorqueOnOffCallback, this);
-  command_sub_ = ros_node.subscribe("/robotis/offset_tuner/command", 5,
+  command_sub_ = ros_node.subscribe("/humanoid_robot/offset_tuner/command", 5,
                                     &OffsetTunerServer::commandCallback, this);
   offset_data_server_ = ros_node.advertiseService(
-      "robotis/offset_tuner/get_present_joint_offset_data",
+      "humanoid_robot/offset_tuner/get_present_joint_offset_data",
       &OffsetTunerServer::getPresentJointOffsetDataServiceCallback, this);
 
   return true;
@@ -408,7 +408,7 @@ void OffsetTunerServer::getInitPose(const std::string &path) {
   } else {
     double default_offset_value = 0.0;
 
-    for (std::map<std::string, robotis_framework::Dynamixel *>::iterator
+    for (std::map<std::string, humanoid_robot_framework::Dynamixel *>::iterator
              dxls_it = controller_->robot_->dxls_.begin();
          dxls_it != controller_->robot_->dxls_.end(); dxls_it++) {
       std::string joint_name = dxls_it->first;
@@ -420,4 +420,4 @@ void OffsetTunerServer::getInitPose(const std::string &path) {
 
   return;
 }
-} // namespace robotis_op
+} // namespace humanoid_robot_op
