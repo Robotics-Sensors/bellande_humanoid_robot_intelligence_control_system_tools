@@ -1,7 +1,7 @@
 # ROS/ROS2 Humanoid Robot Tools
 
 --------------------------------------------------------------------------------------------------------
-Updated Version [humanoid_robot_module](https://github.com/Robotics-Sensors/humanoid_robot_tools) readme.
+Updated Version [humanoid_robot_tools](https://github.com/Robotics-Sensors/humanoid_robot_tools) readme.
 
 --------------------------------------------------------------------------------------------------------
 ## Important
