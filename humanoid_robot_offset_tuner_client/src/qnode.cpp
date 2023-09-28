@@ -57,16 +57,16 @@ bool QNode::init() {
   // Add your ros communications here
   joint_offset_data_pub_ =
       ros_node.advertise<humanoid_robot_offset_tuner_msgs::JointOffsetData>(
-          "/robotis/offset_tuner/joint_offset_data", 0);
+          "/humanoid_robot/offset_tuner/joint_offset_data", 0);
   torque_enable_pub_ =
       ros_node.advertise<humanoid_robot_offset_tuner_msgs::JointTorqueOnOffArray>(
-          "/robotis/offset_tuner/torque_enable", 0);
+          "/humanoid_robot/offset_tuner/torque_enable", 0);
   command_pub_ =
-      ros_node.advertise<std_msgs::String>("/robotis/offset_tuner/command", 0);
+      ros_node.advertise<std_msgs::String>("/humanoid_robot/offset_tuner/command", 0);
 
   get_present_joint_offset_data_client_ =
       ros_node.serviceClient<humanoid_robot_offset_tuner_msgs::GetPresentJointOffsetData>(
-          "/robotis/offset_tuner/get_present_joint_offset_data");
+          "/humanoid_robot/offset_tuner/get_present_joint_offset_data");
 
   std::string default_config_path =
       ros::package::getPath("humanoid_robot_offset_tuner_client") +
