@@ -1,6 +1,6 @@
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Changelog for package humanoid_robot_description
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Changelog for package humanoid_robot_common
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 0.3.1 (2023-09-27)
 ------------------
@@ -24,8 +24,6 @@ Changelog for package humanoid_robot_description
 
 0.1.0 (2018-03-26)
 ------------------
-* added humanoid_robot-humanoid_robot robot description
-* modified the launch file to view on RViz
-* modified for walking upgrade
+* added metapackage
 * refactoring to release
-* Contributors: SCH, Kayman, Pyo
+* Contributors: Pyo

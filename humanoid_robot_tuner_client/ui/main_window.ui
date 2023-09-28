@@ -21,7 +21,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../resources/images.qrc">
-    <normaloff>:/images/robotis_icon.png</normaloff>:/images/robotis_icon.png</iconset>
+    <normaloff>:/images/humanoid_robot_icon.png</normaloff>:/images/humanoid_robot_icon.png</iconset>
   </property>
   <property name="locale">
    <locale language="English" country="Australia"/>

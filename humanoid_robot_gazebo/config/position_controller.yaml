@@ -1,4 +1,4 @@
-robotis_humanoid_robot:
+humanoid_robot:
 
   # Publish all joint states -----------------------------------
 

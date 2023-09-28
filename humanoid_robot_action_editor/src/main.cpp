@@ -84,7 +84,7 @@ int main(int argc, char **argv) {
   if (turnOnDynamixelPower(_device_name, _baud_rate) == false)
     return 0;
 
-  robotis_op::ActionEditor editor;
+  humanoid_robot_op::ActionEditor editor;
   if (editor.initializeActionEditor(robot_file, dxl_init_file, offset_file) ==
       false) {
     ROS_ERROR("Failed to Initialize");
@@ -222,50 +222,50 @@ int main(int argc, char **argv) {
           else if (strcmp(cmd, "mrl") == 0) {
             if (num_param > 0)
               editor.mirrorStepCmd(iparam[0],
-                                   robotis_op::ActionEditor::RightToLeft,
-                                   robotis_op::ActionEditor::AllBody);
+                                   humanoid_robot_op::ActionEditor::RightToLeft,
+                                   humanoid_robot_op::ActionEditor::AllBody);
             else
               editor.printCmd("Need parameter");
           } else if (strcmp(cmd, "murl") == 0) {
             if (num_param > 0)
               editor.mirrorStepCmd(iparam[0],
-                                   robotis_op::ActionEditor::RightToLeft,
-                                   robotis_op::ActionEditor::UpperBody);
+                                   humanoid_robot_op::ActionEditor::RightToLeft,
+                                   humanoid_robot_op::ActionEditor::UpperBody);
             else
               editor.printCmd("Need parameter");
           } else if (strcmp(cmd, "mlrl") == 0) {
             if (num_param > 0)
               editor.mirrorStepCmd(iparam[0],
-                                   robotis_op::ActionEditor::RightToLeft,
-                                   robotis_op::ActionEditor::LowerBody);
+                                   humanoid_robot_op::ActionEditor::RightToLeft,
+                                   humanoid_robot_op::ActionEditor::LowerBody);
             else
               editor.printCmd("Need parameter");
           } else if (strcmp(cmd, "mlr") == 0) {
             if (num_param > 0)
               editor.mirrorStepCmd(iparam[0],
-                                   robotis_op::ActionEditor::LeftToRight,
-                                   robotis_op::ActionEditor::AllBody);
+                                   humanoid_robot_op::ActionEditor::LeftToRight,
+                                   humanoid_robot_op::ActionEditor::AllBody);
             else
               editor.printCmd("Need parameter");
           } else if (strcmp(cmd, "mulr") == 0) {
             if (num_param > 0)
               editor.mirrorStepCmd(iparam[0],
-                                   robotis_op::ActionEditor::LeftToRight,
-                                   robotis_op::ActionEditor::UpperBody);
+                                   humanoid_robot_op::ActionEditor::LeftToRight,
+                                   humanoid_robot_op::ActionEditor::UpperBody);
             else
               editor.printCmd("Need parameter");
           } else if (strcmp(cmd, "mllr") == 0) {
             if (num_param > 0)
               editor.mirrorStepCmd(iparam[0],
-                                   robotis_op::ActionEditor::LeftToRight,
-                                   robotis_op::ActionEditor::LowerBody);
+                                   humanoid_robot_op::ActionEditor::LeftToRight,
+                                   humanoid_robot_op::ActionEditor::LowerBody);
             else
               editor.printCmd("Need parameter");
           } else if (strcmp(cmd, "ms") == 0) {
             if (num_param > 0)
               editor.mirrorStepCmd(iparam[0],
-                                   robotis_op::ActionEditor::SwitchEach,
-                                   robotis_op::ActionEditor::AllBody);
+                                   humanoid_robot_op::ActionEditor::SwitchEach,
+                                   humanoid_robot_op::ActionEditor::AllBody);
             else
               editor.printCmd("Need parameter");
           } else if (strcmp(cmd, "w") == 0) {
