@@ -6,7 +6,6 @@
      humanoid_robot_gui_demo
   </description>
   <license>Apache License 2.0</license>
-  <author email="kmjung@robotis.com">Kayman</author>
   <maintainer email="ronaldsonbellande@gmail.com">Ronaldson Bellande</maintainer>
 
   <buildtool_depend>catkin</buildtool_depend>
