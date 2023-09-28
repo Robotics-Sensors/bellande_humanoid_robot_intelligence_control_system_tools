@@ -6,7 +6,6 @@
      thormang3_offset_tuner_client
   </description>
   <license>Apache License 2.0</license>
-  <author email="kmjung@robotis.com">Kayman</author>
   <maintainer email="ronaldsonbellande@gmail.com">Ronaldson Bellande</maintainer>
 
   <buildtool_depend>catkin</buildtool_depend>
