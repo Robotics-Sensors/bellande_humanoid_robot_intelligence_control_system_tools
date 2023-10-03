@@ -12,14 +12,28 @@
   <buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
 
 
-  <build_depend>rosbridge_server</build_depend>
-  <build_depend>web_video_server</build_depend>
+  <condition if="$ROS_VERSION == 1">
+    <build_depend>rosbridge_server</build_depend>
+    <build_depend>web_video_server</build_depend>
 
-  <build_export_depend>rosbridge_server</build_export_depend>
-  <build_export_depend>web_video_server</build_export_depend>
+    <build_export_depend>rosbridge_server</build_export_depend>
+    <build_export_depend>web_video_server</build_export_depend>
 
-  <exec_depend>rosbridge_server</exec_depend>
-  <exec_depend>web_video_server</exec_depend>
+    <exec_depend>rosbridge_server</exec_depend>
+    <exec_depend>web_video_server</exec_depend>
+  </condition>
+
+
+  <condition if="$ROS_VERSION == 2">
+    <build_depend>rosbridge_server</build_depend>
+    <build_depend>web_video_server</build_depend>
+
+    <build_export_depend>rosbridge_server</build_export_depend>
+    <build_export_depend>web_video_server</build_export_depend>
+
+    <exec_depend>rosbridge_server</exec_depend>
+    <exec_depend>web_video_server</exec_depend>
+  </condition>
 
 
 </package>
