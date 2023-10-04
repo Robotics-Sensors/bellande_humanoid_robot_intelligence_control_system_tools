@@ -67,12 +67,13 @@ MainWindow::MainWindow(int argc, char **argv, QWidget *parent)
 
   qRegisterMetaType<humanoid_robot_offset_tuner_msgs::JointOffsetPositionData>(
       "humanoid_robot_offset_tuner_msgs::JointOffsetPositionData");
-  QObject::connect(&qnode_,
-                   SIGNAL(updatePresentJointOffsetData(
-                       humanoid_robot_offset_tuner_msgs::JointOffsetPositionData)),
-                   this,
-                   SLOT(updateJointOffsetSpinbox(
-                       humanoid_robot_offset_tuner_msgs::JointOffsetPositionData)));
+  QObject::connect(
+      &qnode_,
+      SIGNAL(updatePresentJointOffsetData(
+          humanoid_robot_offset_tuner_msgs::JointOffsetPositionData)),
+      this,
+      SLOT(updateJointOffsetSpinbox(
+          humanoid_robot_offset_tuner_msgs::JointOffsetPositionData)));
 
   /*********************
    ** Logging
@@ -456,9 +457,9 @@ void MainWindow::makeTabUI(QGroupBox *joint_widget, QGroupBox *torque_widget,
  *****************************************************************************/
 
 void MainWindow::on_actionAbout_triggered() {
-  QMessageBox::about(
-      this, tr("About ..."),
-      tr("<h2>HUMANOID_ROBOT Offset Tuner Clinet 0.10</h2><p>Copyright ROBOTIS</p>"));
+  QMessageBox::about(this, tr("About ..."),
+                     tr("<h2>HUMANOID_ROBOT Offset Tuner Clinet "
+                        "0.10</h2><p>Copyright ROBOTIS</p>"));
 }
 
 /*****************************************************************************
