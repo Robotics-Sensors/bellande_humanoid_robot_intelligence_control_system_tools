@@ -1,35 +1,32 @@
-##############################################################################
-# CMake
-##############################################################################
-
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.8)
 project(humanoid_robot_gui_demo)
 
-##############################################################################
-# Catkin
-##############################################################################
-
 # qt_build provides the qt cmake glue, roscpp the comms for a default talker
-find_package(
-  catkin REQUIRED COMPONENTS
-  rqt_gui
-  rqt_gui_cpp
-  roscpp
-  roslib
-  std_msgs
-  sensor_msgs
-  geometry_msgs
-  visualization_msgs
-  interactive_markers
-  cmake_modules
-  eigen_conversions
-  humanoid_robot_controller_msgs
-  humanoid_robot_walking_module_msgs
-  humanoid_robot_online_walking_module_msgs
-  humanoid_nav_msgs
-)
+if($ENV{ROS_VERSION} EQUAL 1)
+  find_package(
+    catkin REQUIRED COMPONENTS
+    rqt_gui
+    rqt_gui_cpp
+    roscpp
+    roslib
+    std_msgs
+    sensor_msgs
+    geometry_msgs
+    visualization_msgs
+    interactive_markers
+    cmake_modules
+    eigen_conversions
+    humanoid_robot_controller_msgs
+    humanoid_robot_walking_module_msgs
+    humanoid_robot_online_walking_module_msgs
+    humanoid_nav_msgs
+  )
 
-# find_package(Eigen REQUIRED)
+  find_package(Eigen REQUIRED)
+else()
+  find_package(ament_cmake REQUIRED)
+endif()
+
 
 if("${qt_gui_cpp_USE_QT_MAJOR_VERSION} " STREQUAL "5 ")
   find_package(Qt5Widgets REQUIRED)
@@ -76,26 +73,31 @@ if(NOT EXISTS "${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/${PRO
   file(MAKE_DIRECTORY "${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/${PROJECT_NAME}")
 endif()
 
-catkin_package(
-  INCLUDE_DIRS ${humanoid_robot_gui_demo_INCLUDE_DIRECTORIES}
-  LIBRARIES ${PROJECT_NAME}
-  CATKIN_DEPENDS
-  rqt_gui
-  rqt_gui_cpp
-  roscpp
-  roslib
-  std_msgs
-  sensor_msgs
-  geometry_msgs
-  visualization_msgs
-  interactive_markers
-  cmake_modules
-  eigen_conversions
-  humanoid_robot_controller_msgs
-  humanoid_robot_walking_module_msgs
-  humanoid_robot_online_walking_module_msgs
-  humanoid_nav_msgs
-)
+if($ENV{ROS_VERSION} EQUAL 1)
+  catkin_package(
+    INCLUDE_DIRS ${humanoid_robot_gui_demo_INCLUDE_DIRECTORIES}
+    LIBRARIES ${PROJECT_NAME}
+    CATKIN_DEPENDS
+    rqt_gui
+    rqt_gui_cpp
+    roscpp
+    roslib
+    std_msgs
+    sensor_msgs
+    geometry_msgs
+    visualization_msgs
+    interactive_markers
+    cmake_modules
+    eigen_conversions
+    humanoid_robot_controller_msgs
+    humanoid_robot_walking_module_msgs
+    humanoid_robot_online_walking_module_msgs
+    humanoid_nav_msgs
+  )
+else()
+  ament_package()
+endif()
+
 #catkin_python_setup()
 
 if("${qt_gui_cpp_USE_QT_MAJOR_VERSION} " STREQUAL "5 ")
@@ -137,17 +139,9 @@ endif()
 find_package(class_loader)
 class_loader_hide_library_symbols(${PROJECT_NAME})
 
-##############################################################################
-# Qt Environment
-##############################################################################
-
 # this comes from qt_build's qt-ros.cmake which is automatically
 # included via the dependency call in package.xml
 #rosbuild_prepare_qt4(QtCore QtGui) # Add the appropriate components to the component list here
-
-##############################################################################
-# Sections
-##############################################################################
 
 #file(GLOB QT_FORMS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ui/*.ui)
 #file(GLOB QT_RESOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} resources/*.qrc)
@@ -157,15 +151,9 @@ class_loader_hide_library_symbols(${PROJECT_NAME})
 #QT4_WRAP_UI(QT_FORMS_HPP ${QT_FORMS})
 #QT4_WRAP_CPP(QT_MOC_HPP ${QT_MOC})
 
-##############################################################################
-# Sources
-##############################################################################
 
 #file(GLOB_RECURSE QT_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINKS src/*.cpp)
 
-##############################################################################
-# Binaries
-##############################################################################
 
 #add_executable(humanoid_robot_gui_demo ${QT_SOURCES} ${QT_RESOURCES_CPP} ${QT_FORMS_HPP} ${QT_MOC_HPP})
 #add_dependencies(humanoid_robot_gui_demo ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})

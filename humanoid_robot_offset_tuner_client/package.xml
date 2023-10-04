@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package>
+<package format="3">
   <name>humanoid_robot_offset_tuner_client</name>
   <version>0.3.0</version>
   <description>
@@ -8,24 +8,50 @@
   <license>Apache License 2.0</license>
   <maintainer email="ronaldsonbellande@gmail.com">Ronaldson Bellande</maintainer>
 
-  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+  <buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
 
-  <build_depend>rqt_gui</build_depend>
-  <build_depend>rqt_gui_cpp</build_depend>
-  <build_depend>roscpp</build_depend>
-  <build_depend>roslib</build_depend>
-  <build_depend>humanoid_robot_offset_tuner_msgs</build_depend>
 
-  <!-- <build_export_depend>rqt_gui</build_export_depend> -->
-  <!-- <build_export_depend>rqt_gui_cpp</build_export_depend> -->
-  <!-- <build_export_depend>roscpp</build_export_depend> -->
-  <!-- <build_export_depend>roslib</build_export_depend> -->
-  <!-- <build_export_depend>humanoid_robot_offset_tuner_msgs</build_export_depend> -->
+  <condition if="$ROS_VERSION == 1">
+    <build_depend>rqt_gui</build_depend>
+    <build_depend>rqt_gui_cpp</build_depend>
+    <build_depend>roscpp</build_depend>
+    <build_depend>roslib</build_depend>
+    <build_depend>humanoid_robot_offset_tuner_msgs</build_depend>
 
-  <run_depend>rqt_gui</run_depend>
-  <run_depend>rqt_gui_cpp</run_depend>
-  <run_depend>roscpp</run_depend>
-  <run_depend>roslib</run_depend>
-  <run_depend>humanoid_robot_offset_tuner_msgs</run_depend>
+    <!-- <build_export_depend>rqt_gui</build_export_depend> -->
+    <!-- <build_export_depend>rqt_gui_cpp</build_export_depend> -->
+    <!-- <build_export_depend>roscpp</build_export_depend> -->
+    <!-- <build_export_depend>roslib</build_export_depend> -->
+    <!-- <build_export_depend>humanoid_robot_offset_tuner_msgs</build_export_depend> -->
+
+    <run_depend>rqt_gui</run_depend>
+    <run_depend>rqt_gui_cpp</run_depend>
+    <run_depend>roscpp</run_depend>
+    <run_depend>roslib</run_depend>
+    <run_depend>humanoid_robot_offset_tuner_msgs</run_depend>
+  </condition>
+
+
+  <condition if="$ROS_VERSION == 2">
+    <build_depend>rqt_gui</build_depend>
+    <build_depend>rqt_gui_cpp</build_depend>
+    <build_depend>roscpp</build_depend>
+    <build_depend>roslib</build_depend>
+    <build_depend>humanoid_robot_offset_tuner_msgs</build_depend>
+
+    <!-- <build_export_depend>rqt_gui</build_export_depend> -->
+    <!-- <build_export_depend>rqt_gui_cpp</build_export_depend> -->
+    <!-- <build_export_depend>roscpp</build_export_depend> -->
+    <!-- <build_export_depend>roslib</build_export_depend> -->
+    <!-- <build_export_depend>humanoid_robot_offset_tuner_msgs</build_export_depend> -->
+
+    <run_depend>rqt_gui</run_depend>
+    <run_depend>rqt_gui_cpp</run_depend>
+    <run_depend>roscpp</run_depend>
+    <run_depend>roslib</run_depend>
+    <run_depend>humanoid_robot_offset_tuner_msgs</run_depend>
+  </condition>
+
 
 </package>

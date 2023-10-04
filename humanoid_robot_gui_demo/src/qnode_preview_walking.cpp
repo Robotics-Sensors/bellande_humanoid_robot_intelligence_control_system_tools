@@ -26,15 +26,17 @@ namespace humanoid_robot_op {
 
 void QNodeHUMANOID_ROBOT::init_preview_walking(ros::NodeHandle &ros_node) {
   // preview walking
-  foot_step_command_pub_ =
-      ros_node.advertise<humanoid_robot_online_walking_module_msgs::FootStepCommand>(
-          "/humanoid_robot/online_walking/foot_step_command", 0);
+  foot_step_command_pub_ = ros_node.advertise<
+      humanoid_robot_online_walking_module_msgs::FootStepCommand>(
+      "/humanoid_robot/online_walking/foot_step_command", 0);
   walking_param_pub_ =
-      ros_node.advertise<humanoid_robot_online_walking_module_msgs::WalkingParam>(
-          "/humanoid_robot/online_walking/walking_param", 0);
+      ros_node
+          .advertise<humanoid_robot_online_walking_module_msgs::WalkingParam>(
+              "/humanoid_robot/online_walking/walking_param", 0);
   set_walking_footsteps_pub_ =
-      ros_node.advertise<humanoid_robot_online_walking_module_msgs::Step2DArray>(
-          "/humanoid_robot/online_walking/footsteps_2d", 0);
+      ros_node
+          .advertise<humanoid_robot_online_walking_module_msgs::Step2DArray>(
+              "/humanoid_robot/online_walking/footsteps_2d", 0);
 
   body_offset_pub_ = ros_node.advertise<geometry_msgs::Pose>(
       "/humanoid_robot/online_walking/body_offset", 0);
@@ -64,9 +66,10 @@ void QNodeHUMANOID_ROBOT::init_preview_walking(ros::NodeHandle &ros_node) {
 }
 
 bool QNodeHUMANOID_ROBOT::transformPose(const std::string &from_id,
-                             const std::string &to_id,
-                             const geometry_msgs::Pose &from_pose,
-                             geometry_msgs::Pose &to_pose, bool inverse) {
+                                        const std::string &to_id,
+                                        const geometry_msgs::Pose &from_pose,
+                                        geometry_msgs::Pose &to_pose,
+                                        bool inverse) {
   tf::StampedTransform desired_transform;
 
   try {
@@ -187,7 +190,8 @@ void QNodeHUMANOID_ROBOT::interactiveMarkerFeedback(
   interactive_marker_server_->applyChanges();
 }
 
-void QNodeHUMANOID_ROBOT::makeInteractiveMarker(const geometry_msgs::Pose &marker_pose) {
+void QNodeHUMANOID_ROBOT::makeInteractiveMarker(
+    const geometry_msgs::Pose &marker_pose) {
   if (frame_id_ == "") {
     ROS_ERROR("No frame id!!!");
     // return;
@@ -347,7 +351,8 @@ void QNodeHUMANOID_ROBOT::makeInteractiveMarker(const geometry_msgs::Pose &marke
   interactive_marker_server_->applyChanges();
 }
 
-bool QNodeHUMANOID_ROBOT::updateInteractiveMarker(const geometry_msgs::Pose &pose) {
+bool QNodeHUMANOID_ROBOT::updateInteractiveMarker(
+    const geometry_msgs::Pose &pose) {
   ROS_INFO("Update Interactive Marker Pose");
 
   visualization_msgs::InteractiveMarker interactive_marker;
@@ -487,13 +492,16 @@ void QNodeHUMANOID_ROBOT::makeFootstepUsingPlanner(
         int foot_type;
         std::string foot_string;
         if (type == humanoid_nav_msgs::StepTarget::right) {
-          foot_type = humanoid_robot_online_walking_module_msgs::Step2D::RIGHT_FOOT_SWING;
+          foot_type = humanoid_robot_online_walking_module_msgs::Step2D::
+              RIGHT_FOOT_SWING;
           foot_string = "right";
         } else if (type == humanoid_nav_msgs::StepTarget::left) {
-          foot_type = humanoid_robot_online_walking_module_msgs::Step2D::LEFT_FOOT_SWING;
+          foot_type = humanoid_robot_online_walking_module_msgs::Step2D::
+              LEFT_FOOT_SWING;
           foot_string = "left";
         } else
-          foot_type = humanoid_robot_online_walking_module_msgs::Step2D::STANDING;
+          foot_type =
+              humanoid_robot_online_walking_module_msgs::Step2D::STANDING;
 
         std::stringstream msg_stream;
         geometry_msgs::Pose2D foot_pose = get_step.response.footsteps[ix].pose;
@@ -526,22 +534,26 @@ void QNodeHUMANOID_ROBOT::makeFootstepUsingPlanner(
             humanoid_robot_online_walking_module_msgs::Step2D::LEFT_FOOT_SWING);
         preview_foot_steps_.push_back(target_r_foot_pose);
         preview_foot_types_.push_back(
-            humanoid_robot_online_walking_module_msgs::Step2D::RIGHT_FOOT_SWING);
+            humanoid_robot_online_walking_module_msgs::Step2D::
+                RIGHT_FOOT_SWING);
         preview_foot_steps_.push_back(target_l_foot_pose);
         preview_foot_types_.push_back(
             humanoid_robot_online_walking_module_msgs::Step2D::LEFT_FOOT_SWING);
       } else if (preview_foot_types_[preview_foot_types_.size() - 1] ==
-                 humanoid_robot_online_walking_module_msgs::Step2D::LEFT_FOOT_SWING) {
+                 humanoid_robot_online_walking_module_msgs::Step2D::
+                     LEFT_FOOT_SWING) {
         preview_foot_steps_.push_back(target_r_foot_pose);
         preview_foot_types_.push_back(
-            humanoid_robot_online_walking_module_msgs::Step2D::RIGHT_FOOT_SWING);
+            humanoid_robot_online_walking_module_msgs::Step2D::
+                RIGHT_FOOT_SWING);
         preview_foot_steps_.push_back(target_l_foot_pose);
         preview_foot_types_.push_back(
             humanoid_robot_online_walking_module_msgs::Step2D::LEFT_FOOT_SWING);
       } else {
         preview_foot_steps_.push_back(target_r_foot_pose);
         preview_foot_types_.push_back(
-            humanoid_robot_online_walking_module_msgs::Step2D::RIGHT_FOOT_SWING);
+            humanoid_robot_online_walking_module_msgs::Step2D::
+                RIGHT_FOOT_SWING);
         preview_foot_steps_.push_back(target_l_foot_pose);
         preview_foot_types_.push_back(
             humanoid_robot_online_walking_module_msgs::Step2D::LEFT_FOOT_SWING);
@@ -615,8 +627,8 @@ void QNodeHUMANOID_ROBOT::visualizePreviewFootsteps(bool clear) {
       alpha *= 0.9;
 
       // set foot step color
-      if (preview_foot_types_[ix] ==
-          humanoid_robot_online_walking_module_msgs::Step2D::LEFT_FOOT_SWING) // left
+      if (preview_foot_types_[ix] == humanoid_robot_online_walking_module_msgs::
+                                         Step2D::LEFT_FOOT_SWING) // left
       {
         rviz_marker.color.r = 0.0;
         rviz_marker.color.g = 0.0;
@@ -724,7 +736,8 @@ void QNodeHUMANOID_ROBOT::parseIniPoseData(const std::string &path) {
   sendJointPoseMsg(msg);
 }
 
-void QNodeHUMANOID_ROBOT::sendJointPoseMsg(humanoid_robot_online_walking_module_msgs::JointPose msg) {
+void QNodeHUMANOID_ROBOT::sendJointPoseMsg(
+    humanoid_robot_online_walking_module_msgs::JointPose msg) {
   joint_pose_msg_pub_.publish(msg);
 
   log(Info, "Send Joint Pose Msg");

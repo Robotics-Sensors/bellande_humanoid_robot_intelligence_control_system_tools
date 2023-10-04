@@ -102,7 +102,8 @@ public Q_SLOTS:
   void updateHeadAngles(double pan, double tilt);
 
   // Walking
-  void updateWalkingParams(humanoid_robot_walking_module_msgs::WalkingParam params);
+  void
+  updateWalkingParams(humanoid_robot_walking_module_msgs::WalkingParam params);
   void walkingCommandShortcut();
 
 protected Q_SLOTS:

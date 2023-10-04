@@ -39,8 +39,8 @@ using namespace Qt;
  *****************************************************************************/
 
 MainWindow::MainWindow(int argc, char **argv, QWidget *parent)
-    : QMainWindow(parent), qnode_humanoid_robot_(argc, argv), is_updating_(false),
-      is_walking_(false) {
+    : QMainWindow(parent), qnode_humanoid_robot_(argc, argv),
+      is_updating_(false), is_walking_(false) {
   // code to DEBUG
   debug_ = false;
 
@@ -63,13 +63,15 @@ MainWindow::MainWindow(int argc, char **argv, QWidget *parent)
   ui_.tab_manager->setCurrentIndex(
       0); // ensure the first tab is showing - qt-designer should have this
           // already hardwired, but often loses it (settings?).
-  QObject::connect(&qnode_humanoid_robot_, SIGNAL(rosShutdown()), this, SLOT(close()));
+  QObject::connect(&qnode_humanoid_robot_, SIGNAL(rosShutdown()), this,
+                   SLOT(close()));
 
   qRegisterMetaType<std::vector<int>>("std::vector<int>");
   QObject::connect(&qnode_humanoid_robot_,
                    SIGNAL(updateCurrentJointControlMode(std::vector<int>)),
                    this, SLOT(updateCurrentJointMode(std::vector<int>)));
-  QObject::connect(&qnode_humanoid_robot_, SIGNAL(updateHeadAngles(double, double)), this,
+  QObject::connect(&qnode_humanoid_robot_,
+                   SIGNAL(updateHeadAngles(double, double)), this,
                    SLOT(updateHeadAngles(double, double)));
 
   QObject::connect(ui_.head_pan_slider, SIGNAL(valueChanged(int)), this,
@@ -77,11 +79,14 @@ MainWindow::MainWindow(int argc, char **argv, QWidget *parent)
   QObject::connect(ui_.head_tilt_slider, SIGNAL(valueChanged(int)), this,
                    SLOT(setHeadAngle()));
 
-  qRegisterMetaType<humanoid_robot_walking_module_msgs::WalkingParam>("op_walking_params");
-  QObject::connect(
-      &qnode_humanoid_robot_,
-      SIGNAL(updateWalkingParameters(humanoid_robot_walking_module_msgs::WalkingParam)),
-      this, SLOT(updateWalkingParams(humanoid_robot_walking_module_msgs::WalkingParam)));
+  qRegisterMetaType<humanoid_robot_walking_module_msgs::WalkingParam>(
+      "op_walking_params");
+  QObject::connect(&qnode_humanoid_robot_,
+                   SIGNAL(updateWalkingParameters(
+                       humanoid_robot_walking_module_msgs::WalkingParam)),
+                   this,
+                   SLOT(updateWalkingParams(
+                       humanoid_robot_walking_module_msgs::WalkingParam)));
 
   /*********************
    ** Logging
@@ -277,7 +282,8 @@ void MainWindow::setMode(bool check) {
     std::string _control_mode =
         _combo_children.at(ix)->currentText().toStdString();
 
-    if (qnode_humanoid_robot_.getIDJointNameFromIndex(ix, _id, _joint) == true) {
+    if (qnode_humanoid_robot_.getIDJointNameFromIndex(ix, _id, _joint) ==
+        true) {
       _stream << "[" << (_id < 10 ? "0" : "") << _id << "] " << _joint << " : "
               << _control_mode;
 
@@ -314,7 +320,8 @@ void MainWindow::updateCurrentJointMode(std::vector<int> mode) {
       std::string _control_mode =
           _combo_children.at(ix)->currentText().toStdString();
 
-      if (qnode_humanoid_robot_.getIDJointNameFromIndex(ix, _id, _joint) == true) {
+      if (qnode_humanoid_robot_.getIDJointNameFromIndex(ix, _id, _joint) ==
+          true) {
         _stream << "[" << (_id < 10 ? "0" : "") << _id << "] " << _joint
                 << " : " << _control_mode;
       } else {
@@ -381,7 +388,8 @@ void MainWindow::setHeadAngle() {
   if (is_updating_ == true)
     return;
   qnode_humanoid_robot_.setHeadJoint(ui_.head_pan_slider->value() * M_PI / 180,
-                          ui_.head_tilt_slider->value() * M_PI / 180);
+                                     ui_.head_tilt_slider->value() * M_PI /
+                                         180);
 }
 
 void MainWindow::setHeadAngle(double pan, double tilt) {
@@ -487,8 +495,9 @@ void MainWindow::walkingCommandShortcut() {
  *****************************************************************************/
 
 void MainWindow::on_actionAbout_triggered() {
-  QMessageBox::about(this, tr("About ..."),
-                     tr("<h2>HUMANOID_ROBOT Demo 0.10</h2><p>Copyright ROBOTIS</p>"));
+  QMessageBox::about(
+      this, tr("About ..."),
+      tr("<h2>HUMANOID_ROBOT Demo 0.10</h2><p>Copyright ROBOTIS</p>"));
 }
 
 /*****************************************************************************
@@ -530,7 +539,8 @@ void MainWindow::initModeUnit() {
     std::string joint_name;
     int joint_id;
 
-    if (qnode_humanoid_robot_.getIDJointNameFromIndex(ix, joint_id, joint_name) == false)
+    if (qnode_humanoid_robot_.getIDJointNameFromIndex(ix, joint_id,
+                                                      joint_name) == false)
       continue;
 
     label_stream << "[" << (joint_id < 10 ? "0" : "") << joint_id << "] "
@@ -557,8 +567,8 @@ void MainWindow::initModeUnit() {
   // get/set buttons
   QPushButton *get_mode_button = new QPushButton(tr("Get Mode"));
   grid_layout->addWidget(get_mode_button, (number_joint / 2) + 2, 0, 1, 3);
-  QObject::connect(get_mode_button, SIGNAL(clicked(bool)), &qnode_humanoid_robot_,
-                   SLOT(getJointControlMode()));
+  QObject::connect(get_mode_button, SIGNAL(clicked(bool)),
+                   &qnode_humanoid_robot_, SLOT(getJointControlMode()));
 
   ui_.widget_mode->setLayout(grid_layout);
 

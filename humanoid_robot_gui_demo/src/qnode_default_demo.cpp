@@ -25,24 +25,26 @@
 namespace humanoid_robot_op {
 
 void QNodeHUMANOID_ROBOT::init_default_demo(ros::NodeHandle &ros_node) {
-  init_gyro_pub_ = ros_node.advertise<humanoid_robot_controller_msgs::SyncWriteItem>(
-      "/humanoid_robot/sync_write_item", 0);
+  init_gyro_pub_ =
+      ros_node.advertise<humanoid_robot_controller_msgs::SyncWriteItem>(
+          "/humanoid_robot/sync_write_item", 0);
   set_head_joint_angle_pub_ = ros_node.advertise<sensor_msgs::JointState>(
       "/humanoid_robot/head_control/set_joint_states", 0);
 
-  current_joint_states_sub_ =
-      ros_node.subscribe("/humanoid_robot/present_joint_states", 10,
-                         &QNodeHUMANOID_ROBOT::updateHeadJointStatesCallback, this);
+  current_joint_states_sub_ = ros_node.subscribe(
+      "/humanoid_robot/present_joint_states", 10,
+      &QNodeHUMANOID_ROBOT::updateHeadJointStatesCallback, this);
 
   // Walking
-  set_walking_command_pub =
-      ros_node.advertise<std_msgs::String>("/humanoid_robot/walking/command", 0);
+  set_walking_command_pub = ros_node.advertise<std_msgs::String>(
+      "/humanoid_robot/walking/command", 0);
   set_walking_param_pub =
       ros_node.advertise<humanoid_robot_walking_module_msgs::WalkingParam>(
           "/humanoid_robot/walking/set_params", 0);
   get_walking_param_client_ =
-      ros_node.serviceClient<humanoid_robot_walking_module_msgs::GetWalkingParam>(
-          "/humanoid_robot/walking/get_params");
+      ros_node
+          .serviceClient<humanoid_robot_walking_module_msgs::GetWalkingParam>(
+              "/humanoid_robot/walking/get_params");
 
   // Action
   motion_index_pub_ =

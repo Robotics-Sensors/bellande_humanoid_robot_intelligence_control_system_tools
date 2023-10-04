@@ -69,16 +69,17 @@ bool QNodeHUMANOID_ROBOT::init() {
   module_control_pub_ =
       ros_node.advertise<humanoid_robot_controller_msgs::JointCtrlModule>(
           "/humanoid_robot/set_joint_ctrl_modules", 0);
-  module_control_preset_pub_ =
-      ros_node.advertise<std_msgs::String>("/humanoid_robot/enable_ctrl_module", 0);
+  module_control_preset_pub_ = ros_node.advertise<std_msgs::String>(
+      "/humanoid_robot/enable_ctrl_module", 0);
   init_pose_pub_ =
       ros_node.advertise<std_msgs::String>("/humanoid_robot/base/ini_pose", 0);
 
-  status_msg_sub_ = ros_node.subscribe("/humanoid_robot/status", 10,
-                                       &QNodeHUMANOID_ROBOT::statusMsgCallback, this);
-  current_module_control_sub_ =
-      ros_node.subscribe("/humanoid_robot/present_joint_ctrl_modules", 10,
-                         &QNodeHUMANOID_ROBOT::refreshCurrentJointControlCallback, this);
+  status_msg_sub_ =
+      ros_node.subscribe("/humanoid_robot/status", 10,
+                         &QNodeHUMANOID_ROBOT::statusMsgCallback, this);
+  current_module_control_sub_ = ros_node.subscribe(
+      "/humanoid_robot/present_joint_ctrl_modules", 10,
+      &QNodeHUMANOID_ROBOT::refreshCurrentJointControlCallback, this);
 
   get_module_control_client_ =
       ros_node.serviceClient<humanoid_robot_controller_msgs::GetJointModule>(
@@ -181,7 +182,8 @@ void QNodeHUMANOID_ROBOT::parseJointNameFromYaml(const std::string &path) {
 }
 
 // joint id -> joint name
-bool QNodeHUMANOID_ROBOT::getJointNameFromID(const int &id, std::string &joint_name) {
+bool QNodeHUMANOID_ROBOT::getJointNameFromID(const int &id,
+                                             std::string &joint_name) {
   std::map<int, std::string>::iterator map_it;
 
   map_it = id_joint_table_.find(id);
@@ -193,7 +195,8 @@ bool QNodeHUMANOID_ROBOT::getJointNameFromID(const int &id, std::string &joint_n
 }
 
 // joint name -> joint id
-bool QNodeHUMANOID_ROBOT::getIDFromJointName(const std::string &joint_name, int &id) {
+bool QNodeHUMANOID_ROBOT::getIDFromJointName(const std::string &joint_name,
+                                             int &id) {
   std::map<std::string, int>::iterator map_it;
 
   map_it = joint_id_table_.find(joint_name);
@@ -206,7 +209,7 @@ bool QNodeHUMANOID_ROBOT::getIDFromJointName(const std::string &joint_name, int 
 
 // map index -> joint id & joint name
 bool QNodeHUMANOID_ROBOT::getIDJointNameFromIndex(const int &index, int &id,
-                                       std::string &joint_name) {
+                                                  std::string &joint_name) {
   std::map<int, std::string>::iterator map_it;
   int count = 0;
   for (map_it = id_joint_table_.begin(); map_it != id_joint_table_.end();
@@ -397,7 +400,7 @@ void QNodeHUMANOID_ROBOT::statusMsgCallback(
 }
 
 void QNodeHUMANOID_ROBOT::log(const LogLevel &level, const std::string &msg,
-                   std::string sender) {
+                              std::string sender) {
   logging_model_.insertRows(logging_model_.rowCount(), 1);
   std::stringstream logging_model_msg;
 
