@@ -1,25 +1,22 @@
-##############################################################################
-# CMake
-##############################################################################
-
 cmake_minimum_required(VERSION 3.8)
 project(humanoid_robot_offset_tuner_client)
 
-##############################################################################
-# Catkin
-##############################################################################
+if($ENV{ROS_VERSION} EQUAL 1)
+  find_package(
+    catkin REQUIRED COMPONENTS
+    rqt_gui
+    rqt_gui_cpp
+    roscpp
+    roslib
+    humanoid_robot_offset_tuner_msgs
+  )
 
-find_package(
-  catkin REQUIRED COMPONENTS
-  rqt_gui
-  rqt_gui_cpp
-  roscpp
-  roslib
-  humanoid_robot_offset_tuner_msgs
-)
+  find_package(Qt5Widgets REQUIRED)
+else()
+  find_package(ament_cmake REQUIRED)
+endif()
 
 
-find_package(Qt5Widgets REQUIRED)
 
 set(
   humanoid_robot_offset_tuner_client_SRCS
@@ -54,13 +51,22 @@ if(NOT EXISTS "${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/${PRO
   file(MAKE_DIRECTORY "${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/${PROJECT_NAME}")
 endif()
 
-# Use this to define what the package will export (e.g. libs, headers).
-# exporting anything.
-catkin_package(
-  INCLUDE_DIRS ${humanoid_robot_offset_tuner_client_INCLUDE_DIRECTORIES}
-  LIBRARIES ${PROJECT_NAME}
-  CATKIN_DEPENDS rqt_gui rqt_gui_cpp roscpp roslib humanoid_robot_offset_tuner_msgs
-)
+if($ENV{ROS_VERSION} EQUAL 1)
+  catkin_package(
+    INCLUDE_DIRS 
+    ${humanoid_robot_offset_tuner_client_INCLUDE_DIRECTORIES}
+    LIBRARIES ${PROJECT_NAME}
+    CATKIN_DEPENDS 
+    rqt_gui 
+    rqt_gui_cpp 
+    roscpp 
+    roslib 
+    humanoid_robot_offset_tuner_msgs
+  )
+else()
+  ament_package()
+endif()
+
 
 qt5_wrap_cpp(humanoid_robot_offset_tuner_client_MOCS ${humanoid_robot_offset_tuner_client_HDRS})
 
