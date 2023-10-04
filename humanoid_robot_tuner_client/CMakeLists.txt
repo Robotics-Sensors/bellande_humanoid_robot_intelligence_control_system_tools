@@ -1,27 +1,21 @@
-##############################################################################
-# CMake
-##############################################################################
-
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.8)
 project(humanoid_robot_tuner_client)
 
-##############################################################################
-# Catkin
-##############################################################################
+if($ENV{ROS_VERSION} EQUAL 1)
+  find_package(
+    catkin REQUIRED COMPONENTS
+    rqt_gui
+    rqt_gui_cpp
+    roscpp
+    roslib
+    std_msgs
+    humanoid_robot_tuning_module_msgs
+  )
 
-
-find_package(
-  catkin REQUIRED COMPONENTS
-  rqt_gui
-  rqt_gui_cpp
-  roscpp
-  roslib
-  std_msgs
-  humanoid_robot_tuning_module_msgs
-)
-
-
-find_package(PkgConfig REQUIRED)
+  find_package(PkgConfig REQUIRED)
+else()
+  find_package(ament_cmake REQUIRED)
+endif()
 
 pkg_check_modules(YAML_CPP REQUIRED yaml-cpp)
 
@@ -85,17 +79,23 @@ endif()
 
 # Use this to define what the package will export (e.g. libs, headers).
 # exporting anything.
-catkin_package(
-  INCLUDE_DIRS ${humanoid_robot_tuner_client_INCLUDE_DIRECTORIES}
-  LIBRARIES ${PROJECT_NAME}
-  CATKIN_DEPENDS
-  rqt_gui
-  rqt_gui_cpp
-  roscpp
-  roslib
-  std_msgs
-  humanoid_robot_tuning_module_msgs
-)
+
+if($ENV{ROS_VERSION} EQUAL 1)
+  catkin_package(
+    INCLUDE_DIRS ${humanoid_robot_tuner_client_INCLUDE_DIRECTORIES}
+    LIBRARIES ${PROJECT_NAME}
+    CATKIN_DEPENDS
+    rqt_gui
+    rqt_gui_cpp
+    roscpp
+    roslib
+    std_msgs
+    humanoid_robot_tuning_module_msgs
+  )
+else()
+  ament_package()
+endif()
+
 
 if("${qt_gui_cpp_USE_QT_MAJOR_VERSION} " STREQUAL "5 ")
   qt5_wrap_cpp(humanoid_robot_tuner_client_MOCS ${humanoid_robot_tuner_client_HDRS})
