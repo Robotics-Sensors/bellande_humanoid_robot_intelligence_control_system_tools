@@ -59,14 +59,15 @@ bool QNode::init() {
       ros_node.advertise<humanoid_robot_offset_tuner_msgs::JointOffsetData>(
           "/humanoid_robot/offset_tuner/joint_offset_data", 0);
   torque_enable_pub_ =
-      ros_node.advertise<humanoid_robot_offset_tuner_msgs::JointTorqueOnOffArray>(
-          "/humanoid_robot/offset_tuner/torque_enable", 0);
-  command_pub_ =
-      ros_node.advertise<std_msgs::String>("/humanoid_robot/offset_tuner/command", 0);
+      ros_node
+          .advertise<humanoid_robot_offset_tuner_msgs::JointTorqueOnOffArray>(
+              "/humanoid_robot/offset_tuner/torque_enable", 0);
+  command_pub_ = ros_node.advertise<std_msgs::String>(
+      "/humanoid_robot/offset_tuner/command", 0);
 
-  get_present_joint_offset_data_client_ =
-      ros_node.serviceClient<humanoid_robot_offset_tuner_msgs::GetPresentJointOffsetData>(
-          "/humanoid_robot/offset_tuner/get_present_joint_offset_data");
+  get_present_joint_offset_data_client_ = ros_node.serviceClient<
+      humanoid_robot_offset_tuner_msgs::GetPresentJointOffsetData>(
+      "/humanoid_robot/offset_tuner/get_present_joint_offset_data");
 
   std::string default_config_path =
       ros::package::getPath("humanoid_robot_offset_tuner_client") +
@@ -98,7 +99,8 @@ void QNode::sendTorqueEnableMsg(
   log(Info, "Joint Torque On/Off");
 }
 
-void QNode::sendJointOffsetDataMsg(humanoid_robot_offset_tuner_msgs::JointOffsetData msg) {
+void QNode::sendJointOffsetDataMsg(
+    humanoid_robot_offset_tuner_msgs::JointOffsetData msg) {
   joint_offset_data_pub_.publish(msg);
 
   log(Info, "Send Joint Offset Data");
