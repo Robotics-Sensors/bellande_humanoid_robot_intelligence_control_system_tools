@@ -100,7 +100,8 @@ public:
            std::string sender = "Demo");
   void clearLog();
   void assemble_lidar();
-  void setJointControlMode(const humanoid_robot_controller_msgs::JointCtrlModule &msg);
+  void setJointControlMode(
+      const humanoid_robot_controller_msgs::JointCtrlModule &msg);
   void setControlMode(const std::string &mode);
   bool getJointNameFromID(const int &id, std::string &joint_name);
   bool getIDFromJointName(const std::string &joint_name, int &id);
@@ -122,21 +123,23 @@ public:
   void setWalkingCommand(const std::string &command);
   void refreshWalkingParam();
   void saveWalkingParam();
-  void
-  applyWalkingParam(const humanoid_robot_walking_module_msgs::WalkingParam &walking_param);
+  void applyWalkingParam(
+      const humanoid_robot_walking_module_msgs::WalkingParam &walking_param);
   void initGyro();
 
   // Preview Walking
   void init_preview_walking(ros::NodeHandle &ros_node);
-  void
-  sendFootStepCommandMsg(humanoid_robot_online_walking_module_msgs::FootStepCommand msg);
-  void sendWalkingParamMsg(humanoid_robot_online_walking_module_msgs::WalkingParam msg);
+  void sendFootStepCommandMsg(
+      humanoid_robot_online_walking_module_msgs::FootStepCommand msg);
+  void sendWalkingParamMsg(
+      humanoid_robot_online_walking_module_msgs::WalkingParam msg);
   void sendBodyOffsetMsg(geometry_msgs::Pose msg);
   void sendFootDistanceMsg(std_msgs::Float64 msg);
   void sendResetBodyMsg(std_msgs::Bool msg);
   void sendWholebodyBalanceMsg(std_msgs::String msg);
   void parseIniPoseData(const std::string &path);
-  void sendJointPoseMsg(humanoid_robot_online_walking_module_msgs::JointPose msg);
+  void
+  sendJointPoseMsg(humanoid_robot_online_walking_module_msgs::JointPose msg);
 
   // Preview /w footstep
   void makeFootstepUsingPlanner();
@@ -173,7 +176,8 @@ Q_SIGNALS:
   void updateHeadAngles(double pan, double tilt);
 
   // Walking
-  void updateWalkingParameters(humanoid_robot_walking_module_msgs::WalkingParam params);
+  void updateWalkingParameters(
+      humanoid_robot_walking_module_msgs::WalkingParam params);
 
   // Interactive marker
   void updateDemoPoint(const geometry_msgs::Point point);
@@ -186,8 +190,8 @@ private:
       const humanoid_robot_controller_msgs::JointCtrlModule::ConstPtr &msg);
   void
   updateHeadJointStatesCallback(const sensor_msgs::JointState::ConstPtr &msg);
-  void
-  statusMsgCallback(const humanoid_robot_controller_msgs::StatusMsg::ConstPtr &msg);
+  void statusMsgCallback(
+      const humanoid_robot_controller_msgs::StatusMsg::ConstPtr &msg);
 
   // interactive marker
   void pointStampedCallback(const geometry_msgs::PointStamped::ConstPtr &msg);

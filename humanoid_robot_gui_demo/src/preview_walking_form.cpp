@@ -32,10 +32,11 @@ bool PreviewWalkingForm::init(humanoid_robot_op::QNodeHUMANOID_ROBOT *qnode) {
   if (result == true) {
     qRegisterMetaType<geometry_msgs::Point>("geometry_msgs::Point");
     qRegisterMetaType<geometry_msgs::Pose>("geometry_msgs::Pose");
-    connect(qnode_humanoid_robot_, SIGNAL(updateDemoPoint(geometry_msgs::Point)), this,
+    connect(qnode_humanoid_robot_,
+            SIGNAL(updateDemoPoint(geometry_msgs::Point)), this,
             SLOT(updatePointPanel(geometry_msgs::Point)));
-    connect(qnode_humanoid_robot_, SIGNAL(updateDemoPose(geometry_msgs::Pose)), this,
-            SLOT(updatePosePanel(geometry_msgs::Pose)));
+    connect(qnode_humanoid_robot_, SIGNAL(updateDemoPose(geometry_msgs::Pose)),
+            this, SLOT(updatePosePanel(geometry_msgs::Pose)));
   }
 
   return result;
@@ -208,7 +209,8 @@ void PreviewWalkingForm::sendPWalkingCommand(const std::string &command,
   qnode_humanoid_robot_->sendFootStepCommandMsg(msg);
 }
 
-bool PreviewWalkingForm::setQNode(humanoid_robot_op::QNodeHUMANOID_ROBOT *qnode) {
+bool PreviewWalkingForm::setQNode(
+    humanoid_robot_op::QNodeHUMANOID_ROBOT *qnode) {
   if (qnode == NULL)
     return false;
 
