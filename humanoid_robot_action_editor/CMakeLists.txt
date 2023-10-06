@@ -53,8 +53,6 @@ if($ENV{ROS_VERSION} EQUAL 1)
     humanoid_robot_base_module
     DEPENDS CURSES
   )
-else()
-  ament_package()
 endif()
 
 
