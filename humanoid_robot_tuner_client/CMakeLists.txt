@@ -92,8 +92,6 @@ if($ENV{ROS_VERSION} EQUAL 1)
     std_msgs
     humanoid_robot_tuning_module_msgs
   )
-else()
-  ament_package()
 endif()
 
 
