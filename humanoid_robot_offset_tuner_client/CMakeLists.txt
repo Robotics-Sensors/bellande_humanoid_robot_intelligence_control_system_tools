@@ -63,8 +63,6 @@ if($ENV{ROS_VERSION} EQUAL 1)
     roslib 
     humanoid_robot_offset_tuner_msgs
   )
-else()
-  ament_package()
 endif()
 
 
