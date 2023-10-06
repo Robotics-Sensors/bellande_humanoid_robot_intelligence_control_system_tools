@@ -94,8 +94,6 @@ if($ENV{ROS_VERSION} EQUAL 1)
     humanoid_robot_online_walking_module_msgs
     humanoid_nav_msgs
   )
-else()
-  ament_package()
 endif()
 
 #catkin_python_setup()

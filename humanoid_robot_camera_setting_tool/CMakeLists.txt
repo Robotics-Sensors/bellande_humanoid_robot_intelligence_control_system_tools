@@ -67,8 +67,6 @@ if($ENV{ROS_VERSION} EQUAL 1)
     message_runtime
     DEPENDS Boost
   )
-else()
-  ament_package()
 endif()
 
 
