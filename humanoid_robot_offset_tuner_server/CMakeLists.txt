@@ -48,8 +48,6 @@ if($ENV{ROS_VERSION} EQUAL 1)
     humanoid_robot_controller
     humanoid_robot_base_module
   )
-else()
-  ament_package()
 endif()
 
 
