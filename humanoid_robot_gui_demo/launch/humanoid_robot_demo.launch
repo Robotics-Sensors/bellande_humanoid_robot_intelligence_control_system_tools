@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-  <arg name="args" default=""/>
-  <param name="demo_config" value="$(find humanoid_robot_gui_demo)/config/gui_config.yaml"/>
-  
-  <node pkg="humanoid_robot_gui_demo" type="humanoid_robot_gui_demo" name="humanoid_robot_demo_opc" output="screen" args="$(arg args)">
-    <remap from="/humanoid_robot_demo/ik_target_pose" to="/pose_panel/pose" />
-  </node>
-</launch>
