@@ -63,7 +63,5 @@
   <exec_depend condition="$ROS_VERSION == 2">humanoid_robot_web_setting_tool</exec_depend>
 
 
-  <export>
-    <metapackage />
-  </export>
+  <export></export>
 </package>
