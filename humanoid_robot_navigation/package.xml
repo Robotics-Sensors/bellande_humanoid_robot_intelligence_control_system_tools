@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="3">
   <name>humanoid_robot_navigation</name>
-  <version>0.3.0</version>
+  <version>0.3.2</version>
   <description>
     This package is for generating footsteps of ROBOTIS-HUMANOID_ROBOT.
     It has several config files and launch files in order to use footstep planner package. 
