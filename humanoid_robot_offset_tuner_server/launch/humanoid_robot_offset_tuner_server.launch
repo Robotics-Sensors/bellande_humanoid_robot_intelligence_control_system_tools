@@ -1,9 +1,0 @@
-<?xml version="1.0" ?>
-<launch>    
-  <param name="offset_path"     value="$(find humanoid_robot_manager)/config/offset.yaml"/>	
-  <param name="robot_file_path" value="$(find humanoid_robot_manager)/config/HUMANOID_ROBOT.robot"/>
-  <param name="init_file_path"  value="$(find humanoid_robot_manager)/config/dxl_init_HUMANOID_ROBOT.yaml"/>  
-
-  <node pkg="humanoid_robot_offset_tuner_server" type="offset_tuner_server_node" name="offset_tuner_server_node" output="screen">
-  </node>
-</launch>
