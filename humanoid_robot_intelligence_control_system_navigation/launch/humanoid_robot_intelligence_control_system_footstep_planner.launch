@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find humanoid_robot_intelligence_control_system_navigation)/launch/map_server_empty.launch" />
+  <node pkg="footstep_planner" type="footstep_planner_node" name="footstep_planner">
+    <rosparam file="$(find humanoid_robot_intelligence_control_system_navigation)/config/planning_params.yaml" command="load" />
+    <rosparam file="$(find humanoid_robot_intelligence_control_system_navigation)/config/planning_params_humanoid_robot_intelligence_control_system.yaml" command="load" />
+    <rosparam file="$(find humanoid_robot_intelligence_control_system_navigation)/config/footsteps_humanoid_robot_intelligence_control_system.yaml" command="load" />
+    <remap from="map" to="projected_map" />
+  </node>
+</launch>
