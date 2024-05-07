@@ -8,8 +8,16 @@
 
 Welcome to the {BR&SRI} Humanoid Robot Intelligence Control System Demos repository! Here, we invite you to delve into the fascinating world of humanoid robotics, showcasing the innovative capabilities of our intelligent control system.
 
+## 📢 Work with Bellande Algorithms and Models through Bellande's API!
+
+[![Bellande's Algorithm through Bellande API](https://img.shields.io/badge/Bellande's%20Algorithm%20through%20Bellande's%20API-Bellande%20API-blue?style=for-the-badge&logo=ros&color=blue)](https://github.com/Robotics-Sensors/Web-ROS-API)
+
+---
+
 ## 💻 Functionality To Switch from ROS to ROS2 Checkout The Below Repository & ROS/ROS2 Extensions
 [![Toggle ROS Versions](https://img.shields.io/badge/Toggle%20ROS%20Extensions-Explore%20ROS%20and%20ROS2%20migration%20Extensions-blue?style=for-the-badge&logo=ros&color=blue)](https://github.com/Robotics-Sensors/ros_extension)
+
+---
 
 ### 🚀 Key Repository Stats
 
