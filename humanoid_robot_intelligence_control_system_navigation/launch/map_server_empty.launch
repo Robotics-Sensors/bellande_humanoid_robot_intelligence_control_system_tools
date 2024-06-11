@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-  <node pkg="map_server" type="map_server" name="map_server" args="$(find footstep_planner)/maps/empty.yaml">
+  <node pkg="map_server" type="map_server" name="map_server" args="$(find humanoid_robot_intelligence_control_system_footstep_planner)/maps/empty.yaml">
     <param name="frame_id" type="string" value="world" />
     <remap from="map" to="projected_map" />
   </node>
