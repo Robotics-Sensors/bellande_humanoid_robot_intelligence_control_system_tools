@@ -31,7 +31,7 @@ Changelog for package humanoid_robot_intelligence_control_system_navigation
 0.2.1 (2018-04-19)
 ------------------
 * tested for dependencies of ncurses
-* tested for dependencies of footstep_planner
+* tested for dependencies of humanoid_robot_intelligence_control_system_footstep_planner
 * Contributors: Pyo
 
 0.2.0 (2018-03-30)
