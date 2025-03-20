@@ -53,7 +53,7 @@ endif(NOT ${YAML_CPP_VERSION} VERSION_LESS "0.5")
 
 if($ENV{ROS_VERSION} EQUAL 1)
   catkin_package(
-    INCLUDE_DIRS include
+    INCLUDE_DIRS
     CATKIN_DEPENDS
     roscpp
     std_msgs
@@ -63,30 +63,3 @@ if($ENV{ROS_VERSION} EQUAL 1)
     humanoid_robot_intelligence_control_system_base_module
   )
 endif()
-
-
-include_directories(
-  include
-  ${catkin_INCLUDE_DIRS}
-  ${YAML_CPP_INCLUDE_DIRS}
-)
-
-add_executable(offset_tuner_server_node src/humanoid_robot_intelligence_control_system_offset_tuner_server.cpp src/main.cpp)
-add_dependencies(offset_tuner_server_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(offset_tuner_server_node ${catkin_LIBRARIES} ${YAML_CPP_LIBRARIES})
-
-install(
-  TARGETS offset_tuner_server_node
-  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
-
-install(
-  DIRECTORY include/${PROJECT_NAME}/
-  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-)
-
-install(
-  DIRECTORY launch
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-)
-
