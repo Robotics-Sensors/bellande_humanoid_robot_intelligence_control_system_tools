@@ -1,5 +1,8 @@
 # Welcome to the {BRSRI} Bellande Humanoid Robot Intelligence Control System Tools
 
+## 🤖 Explore Humanoid Robot Intelligence with Us!
+Welcome to the {BR&SRI} Humanoid Robot Intelligence Control System Demos repository! Here, we invite you to delve into the fascinating world of humanoid robotics, showcasing the innovative capabilities of our intelligent control system.
+
 # Bellande Robotic Operating System Architecture
 - https://git.bellande-technologies.com/BRSRI/bellande_robotic_system_operating_architecture
 - https://github.com/Robotics-Sensors/bellande_robotic_system_operating_architecture
@@ -14,23 +17,17 @@
 [![Discord](https://img.shields.io/badge/Join%20our-Discord-7289DA?logo=discord&style=for-the-badge)](https://discord.gg/Yc72nd4w)
 [![Sponsor](https://img.shields.io/badge/Sponsor-Robotics%20Sensors%20Research-red?style=for-the-badge&logo=github)](https://github.com/sponsors/Robotics-Sensors)
 
-## 🤖 Explore Humanoid Robot Intelligence with Us!
-
-Welcome to the {BR&SRI} Humanoid Robot Intelligence Control System Demos repository! Here, we invite you to delve into the fascinating world of humanoid robotics, showcasing the innovative capabilities of our intelligent control system.
 
 ## 🔄 Run and Experiment with the build Bellande's Humanoid Robot
-
 [![Bellande's Humanoid](https://img.shields.io/badge/Bellande's-Humanoid%20Robot%20Package-blue?style=for-the-badge&logo=ros&color=blue)](https://github.com/Robotics-Sensors/bellande_humanoid_robotics_package)
 
 
 ## 📢 Work with Bellande Algorithms and Models through Bellande's API!
-
 [![Bellande's Algorithm through Bellande API](https://img.shields.io/badge/Bellande's%20Algorithm%20through%20Bellande's%20API-Bellande%20API-blue?style=for-the-badge&logo=ros&color=blue)](https://github.com/Robotics-Sensors/Web-ROS-API)
 
 ---
 
 ## 🧑‍💼 Work with Bellande Models through Bellande Framework!
-
 [![Bellande's Algorithm through Bellande API](https://img.shields.io/badge/Bellande's%20Models%20through%20Bellande's%20Framework-Bellande%20Framework-blue?style=for-the-badge&logo=ros&color=blue)](https://github.com/Robotics-Sensors/ROS-MODELS)
 
 ---
@@ -41,7 +38,6 @@ Welcome to the {BR&SRI} Humanoid Robot Intelligence Control System Demos reposit
 ---
 
 ### 🚀 Key Repository Stats
-
 - ![GitHub stars](https://img.shields.io/github/stars/Robotics-Sensors/humanoid_robot_intelligence_control_system_demos.svg?style=social) Starred by the community
 - ![GitHub forks](https://img.shields.io/github/forks/Robotics-Sensors/humanoid_robot_intelligence_control_system_demos.svg?style=social) Forked by enthusiasts
 - ![GitHub watchers](https://img.shields.io/github/watchers/Robotics-Sensors/humanoid_robot_intelligence_control_system_demos.svg?style=social) Watched by curious minds
@@ -62,20 +58,17 @@ Explore our [repository website](https://robotics-sensors.github.io/humanoid_rob
 ---
 
 ### 🔄 Updates and Versions
-
 - **Updated Version:** [humanoid_robot_intelligence_control_system_module](https://github.com/Robotics-Sensors/humanoid_robot_intelligence_control_system_demos)
 - **Old Version/Previous Used for Different Context:** [ROBOTIS-OP3-Tools](https://github.com/ROBOTIS-GIT/ROBOTIS-OP3-Tools)
 
 ---
 
 # 🎉 Latest Release
-
 [![Latest Release](https://img.shields.io/github/v/release/Robotics-Sensors/humanoid_robot_intelligence_control_system_tools?style=for-the-badge&color=yellow)](https://github.com/Robotics-Sensors/humanoid_robot_intelligence_control_system_demos/releases/)
 
 ---
 
 ## 📢 Important Announcement
-
 The repository has recently undergone significant updates. Older commits and codes are covered under the previous license, while new commits and codes fall under the new license.
 
 ---
@@ -83,7 +76,6 @@ The repository has recently undergone significant updates. Older commits and cod
 🚀 For the latest versions and updates, visit our organization: [Robotics-Sensors](https://github.com/Robotics-Sensors).
 
 ### 🧑‍💼 Maintainer
-
 Meet our dedicated maintainer, **Ronaldson Bellande**.
 
 ---
