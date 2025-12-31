@@ -1,7 +1,7 @@
 # Welcome to the {BRSRI} Bellande Humanoid Robot Intelligence Control System Tools
 
 ## 🤖 Explore Humanoid Robot Intelligence with Us!
-Welcome to the {BR&SRI} Humanoid Robot Intelligence Control System Demos repository! Here, we invite you to delve into the fascinating world of humanoid robotics, showcasing the innovative capabilities of our intelligent control system.
+Welcome to the {BRSRI} Humanoid Robot Intelligence Control System Demos repository! Here, we invite you to delve into the fascinating world of humanoid robotics, showcasing the innovative capabilities of our intelligent control system.
 
 # Bellande Robotic Operating System Architecture
 - https://git.bellande-technologies.com/BRSRI/bellande_robotic_system_operating_architecture
