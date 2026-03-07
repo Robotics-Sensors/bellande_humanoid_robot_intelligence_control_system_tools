@@ -19,7 +19,8 @@ the License.
   <name>humanoid_robot_intelligence_control_system_camera_setting_tool</name>
   <version>0.3.2</version>
   <description>
-    The humanoid_robot_intelligence_control_system_camera_setting_tool package</description>
+    The humanoid_robot_intelligence_control_system_camera_setting_tool package
+  </description>
   <license>Apache 2.0</license>
   <maintainer email="ronaldsonbellande@gmail.com">Ronaldson Bellande</maintainer>
 
@@ -33,7 +34,6 @@ the License.
   <build_depend condition="$ROS_VERSION == 1">boost</build_depend>
   <build_depend condition="$ROS_VERSION == 1">yaml-cpp</build_depend>
   <build_depend condition="$ROS_VERSION == 1">message_generation</build_depend>
-  <build_depend condition="$ROS_VERSION == 1">message_runtime</build_depend>
 
   <build_export_depend condition="$ROS_VERSION == 1">roscpp</build_export_depend>
   <build_export_depend condition="$ROS_VERSION == 1">roslib</build_export_depend>
@@ -41,8 +41,6 @@ the License.
   <build_export_depend condition="$ROS_VERSION == 1">dynamic_reconfigure</build_export_depend>
   <build_export_depend condition="$ROS_VERSION == 1">boost</build_export_depend>
   <build_export_depend condition="$ROS_VERSION == 1">yaml-cpp</build_export_depend>
-  <build_export_depend condition="$ROS_VERSION == 1">message_generation</build_export_depend>
-  <build_export_depend condition="$ROS_VERSION == 1">message_runtime</build_export_depend>
 
   <exec_depend condition="$ROS_VERSION == 1">roscpp</exec_depend>
   <exec_depend condition="$ROS_VERSION == 1">roslib</exec_depend>
@@ -50,38 +48,34 @@ the License.
   <exec_depend condition="$ROS_VERSION == 1">dynamic_reconfigure</exec_depend>
   <exec_depend condition="$ROS_VERSION == 1">boost</exec_depend>
   <exec_depend condition="$ROS_VERSION == 1">yaml-cpp</exec_depend>
-  <exec_depend condition="$ROS_VERSION == 1">message_generation</exec_depend>
   <exec_depend condition="$ROS_VERSION == 1">message_runtime</exec_depend>
 
 
   <buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+  <buildtool_depend condition="$ROS_VERSION == 2">rosidl_default_generators</buildtool_depend>
 
-  <build_depend condition="$ROS_VERSION == 2">roscpp</build_depend>
-  <build_depend condition="$ROS_VERSION == 2">roslib</build_depend>
+  <build_depend condition="$ROS_VERSION == 2">rclcpp</build_depend>
+  <build_depend condition="$ROS_VERSION == 2">ament_index_cpp</build_depend>
   <build_depend condition="$ROS_VERSION == 2">std_msgs</build_depend>
-  <build_depend condition="$ROS_VERSION == 2">dynamic_reconfigure</build_depend>
+  <build_depend condition="$ROS_VERSION == 2">rclcpp_components</build_depend>
   <build_depend condition="$ROS_VERSION == 2">boost</build_depend>
   <build_depend condition="$ROS_VERSION == 2">yaml-cpp</build_depend>
-  <build_depend condition="$ROS_VERSION == 2">message_generation</build_depend>
-  <build_depend condition="$ROS_VERSION == 2">message_runtime</build_depend>
 
-  <build_export_depend condition="$ROS_VERSION == 2">roscpp</build_export_depend>
-  <build_export_depend condition="$ROS_VERSION == 2">roslib</build_export_depend>
+  <build_export_depend condition="$ROS_VERSION == 2">rclcpp</build_export_depend>
+  <build_export_depend condition="$ROS_VERSION == 2">ament_index_cpp</build_export_depend>
   <build_export_depend condition="$ROS_VERSION == 2">std_msgs</build_export_depend>
-  <build_export_depend condition="$ROS_VERSION == 2">dynamic_reconfigure</build_export_depend>
+  <build_export_depend condition="$ROS_VERSION == 2">rclcpp_components</build_export_depend>
   <build_export_depend condition="$ROS_VERSION == 2">boost</build_export_depend>
   <build_export_depend condition="$ROS_VERSION == 2">yaml-cpp</build_export_depend>
-  <build_export_depend condition="$ROS_VERSION == 2">message_generation</build_export_depend>
-  <build_export_depend condition="$ROS_VERSION == 2">message_runtime</build_export_depend>
 
-  <exec_depend condition="$ROS_VERSION == 2">roscpp</exec_depend>
-  <exec_depend condition="$ROS_VERSION == 2">roslib</exec_depend>
+  <exec_depend condition="$ROS_VERSION == 2">rclcpp</exec_depend>
+  <exec_depend condition="$ROS_VERSION == 2">ament_index_cpp</exec_depend>
   <exec_depend condition="$ROS_VERSION == 2">std_msgs</exec_depend>
-  <exec_depend condition="$ROS_VERSION == 2">dynamic_reconfigure</exec_depend>
+  <exec_depend condition="$ROS_VERSION == 2">rclcpp_components</exec_depend>
   <exec_depend condition="$ROS_VERSION == 2">boost</exec_depend>
   <exec_depend condition="$ROS_VERSION == 2">yaml-cpp</exec_depend>
-  <exec_depend condition="$ROS_VERSION == 2">message_generation</exec_depend>
-  <exec_depend condition="$ROS_VERSION == 2">message_runtime</exec_depend>
+  <exec_depend condition="$ROS_VERSION == 2">rosidl_default_runtime</exec_depend>
 
+  <member_of_group condition="$ROS_VERSION == 2">rosidl_interface_packages</member_of_group>
 
 </package>
